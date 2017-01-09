@@ -1,0 +1,133 @@
+﻿@{
+    ViewBag.Title = "资产信息";
+}
+<script src="/Scripts/Component/Assets.js"></script>
+
+<div id="div_tab" class="easyui-tabs">
+    <div title="基本信息" id="div_basic">
+        <div class="searchdiv">
+            <fieldset>
+                <legend>信息查询</legend>
+                <form id="fmSearch" method="post">
+                    <table>
+                        <tr>
+                            <td style="width: 150px; text-align: right;">设备名称：</td>
+                            <td style="width: 150px;">
+                                <input type="text" name="Name" placeholder="支持模糊查询" />
+                            </td>
+                            <td>
+                                &nbsp;&nbsp;<a id="btnSearch" href="###" class="easyui-linkbutton"
+                                               data-options="iconCls:'icon-search'">
+                                    &nbsp;查&nbsp;&nbsp;询&nbsp;&nbsp;&nbsp;
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </fieldset>
+        </div>
+        <table id="grid" style="width: 100%;" class="easyui-datagrid">
+            <thead>
+                <tr>
+                    <th data-options="field: 'Id', align: 'center', hidden: true">主键</th>
+                    <th data-options="field: 'Name', align: 'center',sortable:'true'">资产名称</th>
+                    <th data-options="field: 'Code', align: 'center',sortable:'true'">资产编码</th>
+                    <th data-options="field: 'Manufacturer', align: 'center',sortable:'true'">制造商</th>
+                    <th data-options="field: 'Model', align: 'center',sortable:'true'">型号</th>
+                    <th data-options="field: 'SerialNumber', align: 'center',sortable:'true'">序列号</th>
+                    <th data-options="field: 'PurchaseDateTime', align: 'center',sortable:'true'">采购日期</th>
+                    <th data-options="field: 'EquipmentValue', align: 'center',sortable:'true'">设备价值</th>
+                    <th data-options="field: 'CreateBy', align: 'center',sortable:'true'">创建人</th>
+                    <th data-options="field: 'CreateTime', align: 'center',sortable:'true'">创建时间</th>
+                    <th data-options="field: 'ModifyBy', align: 'center',sortable:'true'">修改人</th>
+                    <th data-options="field: 'ModifyTime', align: 'center',sortable:'true'">修改时间</th>
+                </tr>
+            </thead>
+        </table>
+
+        <div style="text-align: center; width: 100%; color: red; display: none;" id="emptymsgdiv">没有查询到相关数据</div>
+
+        <div id="DivAdd" class="easyui-dialog" style="width: 400px; height: 500px; padding: 10px 10px 10px 0px;"
+             closed="true" resizable="true" modal="true" data-options="iconCls: 'icon-edit',buttons: '#dlg-buttons'">
+
+            <input name="Id" type="hidden" value="" />
+            <input name="CreateBy" type="hidden" value="" />
+            <input name="CreateTime" type="hidden" value="" />
+            <input name="ModifyBy" type="hidden" value="" />
+            <input name="ModifyTime" type="hidden" value="" />
+            <input name="Type" type="hidden" value="1" />
+
+            <form id="fmDetail" method="post" novalidate enctype="multipart/form-data">
+                <table style="width: 100%; height: 100%;">
+
+                    <tr>
+                        <td style="width: 100px; text-align: right;">资产名称:</td>
+                        <td>
+                            <input type="text" class="easyui-validatebox" name="Name" id="Name" required="required" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="width: 100px; text-align: right;">资产编码:</td>
+                        <td>
+                            <input type="text" class="easyui-validatebox" name="Code" id="Code" required="required" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="width: 100px; text-align: right;">制造商:</td>
+                        <td>
+                            <input type="text" class="easyui-validatebox" name="Manufacturer" id="Manufacturer" required="required" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="width: 100px; text-align: right;">型号:</td>
+                        <td>
+                            <input type="text" class="easyui-validatebox" name="Model" id="Model" required="required" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="width: 100px; text-align: right;">序列号:</td>
+                        <td>
+                            <input type="text" class="easyui-validatebox" name="SerialNumber" id="SerialNumber" required="required" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 100px; text-align: right;">采购日期:</td>
+                        <td>
+                            <input type="text" class="easyui-datebox" name="PurchaseDateTime" id="PurchaseDateTime" required="required" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 100px; text-align: right;">设备价值:</td>
+                        <td>
+                            <input type="text" class="easyui-numberspinner" name="EquipmentValue" id="EquipmentValue" required="required" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+
+            <div style="text-align: center; padding-top: 10px" id="DivAddToolBar">
+                <a href="javascript:void(0)" class="easyui-linkbutton" id="btnAddOK" iconcls="icon-ok" onclick="SaveEntity()">确&nbsp;定&nbsp;&nbsp;</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="javascript:void(0)" class="easyui-linkbutton" iconcls="icon-cancel" onclick="javascript:$('#DivAdd').dialog('close')">关&nbsp;闭&nbsp;&nbsp;</a>
+            </div>
+        </div>
+    </div>
+    <div id="tab_Bom" title="BOM组件">
+        <iframe scrolling="yes" frameborder="0" src="http://www.baidu.com" style="width:100%;height:100%;"></iframe>
+    </div>
+    <div id="tab_Guarantee" title="保修">
+        保修
+    </div>
+    <div id="tab_Person" title="人员">
+        人员
+    </div>
+    <div id="tab_File" title="附件">
+        附件
+    </div>
+    <div id="tab_Log" title="日志">
+        日志
+    </div>
+</div>

@@ -1,0 +1,464 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>智能工厂设备综合管理系统</title>
+    <link href="/Content/easyui/themes/bootstrap/easyui.css" rel='stylesheet' id='linkThemes' />
+    <link href="/Content/main.css" rel="stylesheet" />
+    <link href="/Content/icon.css" rel="stylesheet" />
+    <script src="/Content/easyui/jquery.min.js"></script>
+    <script src="/Content/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript">
+        //window.onload = function () {
+        //    window.moveTo(0, 0);
+        //    window.resizeTo(screen.availWidth, screen.availHeight);
+        //}
+        /**
+ * layout方法扩展
+ */
+        $.extend($.fn.layout.methods, {
+            setRegionToolVisableState: function (jq, params) {
+                return jq.each(function () {
+                    if (params.region == "center")
+                        return;
+                    var panels = $.data(this, 'layout').panels;
+                    var panel = panels[params.region];
+                    var tool = panel.panel('header').find('>div.panel-tool');
+                    tool.css({ display: params.visible ? 'block' : 'none' });
+                    var first = params.region.substring(0, 1);
+                    var others = params.region.substring(1);
+                    var expand = 'expand' + first.toUpperCase() + others;
+                    if (panels[expand]) {
+                        panels[expand].panel('header').find('>div.panel-tool').css({ display: params.visible ? 'block' : 'none' });
+                    }
+                });
+            }
+        });
+        $(function () {         //隐藏
+            $('#layout').layout('setRegionToolVisableState', { region: 'west', visible: false });
+        })
+
+        //显示
+        // $('#layout').layout('setRegionToolVisableState', { region: 'north', visible: true });
+    </script>
+</head>
+<body class="easyui-layout" id="layout">
+    <div data-options="region:'north',border:false" class="ershou_nav" style="padding-right: 20px;">
+        <div class="logo_nav jfl" style="font-size: 21px; font-weight: 500; color: lightcoral;">
+            智能工厂设备综合管理系统
+        </div>
+        <div class="tip_nav jfl"><a href="http://www.huitong-tech.com/" target="_blank" style="color: black; font-size: 18px;"></a></div>
+        <div class="user_nav user_nav1 jfr">
+            <a href="/Login/Index.html" target="_self" style="color: #777; font-size: 14px;">
+                <img src="/Content/images/top/exit.png" />&nbsp;&nbsp;退出
+            </a>
+        </div>
+        <div class="user_nav jfr" style="color: #777; font-size: 14px;">
+            <img src="/Content/images/top/userlog.png" style="width: 16px; height: 16px;" />
+            您好，管理员<span></span>
+        </div>
+
+        <span style="float: right; margin-right: 20px; display: none;">
+            主题切换：<select id="changethemes">
+                <option>bootstrap</option>
+                <option>default</option>
+                <option>black</option>
+                <option>gray</option>
+                <option>metro</option>
+            </select>
+        </span>
+    </div>
+    <div data-options="region:'west',split:false,title:'导航菜单'" style="width: 200px; height: auto;" id="leftmenu">
+        <div id="aa" class="easyui-accordion" style="width: 198px; margin: 0px; padding: 0px;">
+
+            <div title="设备管理">
+                <ul class="leftMenuUl">
+                    <li onclick="MenuClick('/Equipment/Index/','@("<img border=\"0\" src=\"/Content/images/equipment/boatequipment.png\" align=\"middle\" style=\"width:16px;height:16px;margin-top:-4px;\">&nbsp;" + "设备列表")')">
+                        <table>
+                            <tr>
+                                <td>
+                                    <img border="0" src='/Content/images/equipment/boatequipment.png' align='middle' style="width: 24px; height: 24px;" />
+                                </td>
+                                <td>设备列表</td>
+                            </tr>
+                        </table>
+                    </li>
+                    <li onclick="MenuClick('/Component/Assets/','@("<img border=\"0\" src=\"/Content/images/jingbaihui/lipinka.png\" align=\"middle\" style=\"width:16px;height:16px;margin-top:-4px;\">&nbsp;" + "资产列表")')">
+                        <table>
+                            <tr>
+                                <td>
+                                    <img border="0" src='/Content/images/jingbaihui/lipinka.png' align='middle' style="width: 24px; height: 24px;" />
+                                </td>
+                                <td>资产列表</td>
+                            </tr>
+                        </table>
+                    </li>
+                    <li onclick="MenuClick('###','@("<img border=\"0\" src=\"/Content/images/jingbaihui/fangan.png\" align=\"middle\" style=\"width:16px;height:16px;margin-top:-4px;\">&nbsp;" + "兑换方案管理")')">
+                        <table>
+                            <tr>
+                                <td>
+                                    <img border="0" src='/Content/images/jingbaihui/fangan.png' align='middle' style="width: 24px; height: 24px;" />
+                                </td>
+                                <td>设施列表</td>
+                            </tr>
+                        </table>
+                    </li>
+                </ul>
+            </div>
+
+            <div title="维修管理">
+                <ul class="leftMenuUl">
+
+                    <li title="" onclick="MenuClick('/Equipment/Index/','@("<img border=\"0\" src=\"/Content/images/jingbaihui/gongsi.png\" align=\"middle\" style=\"width:16px;height:16px;margin-top:-4px;\">&nbsp;" + "工单列表")')">
+                        <table>
+                            <tr>
+                                <td>
+                                    <img border="0" src='/Content/images/jingbaihui/gongsi.png' align='middle' style="width: 24px; height: 24px;" />
+                                </td>
+                                <td><a href="###" title="管理能定制兑换系统的公司" class="easyui-tooltip">工单列表</a></td>
+                            </tr>
+                        </table>
+                    </li>
+
+                    <li onclick="MenuClick('###','@("<img border=\"0\" src=\"/Content/images/jingbaihui/lipin.png\" align=\"middle\" style=\"width:16px;height:16px;margin-top:-4px;\">&nbsp;" + "工单创建")')">
+                        <table>
+                            <tr>
+                                <td>
+                                    <img border="0" src='/Content/images/jingbaihui/lipin.png' align='middle' style="width: 24px; height: 24px;" />
+                                </td>
+                                <td>工单创建</td>
+                            </tr>
+                        </table>
+                    </li>
+                </ul>
+            </div>
+
+            <div title="备件管理">
+                <ul class="leftMenuUl">
+
+                    <li title="" onclick="MenuClick('/Equipment/Index/','@("<img border=\"0\" src=\"/Content/images/jingbaihui/gongsi.png\" align=\"middle\" style=\"width:16px;height:16px;margin-top:-4px;\">&nbsp;" + "组件列表")')">
+                        <table>
+                            <tr>
+                                <td>
+                                    <img border="0" src='/Content/images/jingbaihui/gongsi.png' align='middle' style="width: 24px; height: 24px;" />
+                                </td>
+                                <td><a href="###" title="组件列表" class="easyui-tooltip">组件列表</a></td>
+                            </tr>
+                        </table>
+                    </li>
+
+                    <li onclick="MenuClick('###','@("<img border=\"0\" src=\"/Content/images/jingbaihui/lipin.png\" align=\"middle\" style=\"width:16px;height:16px;margin-top:-4px;\">&nbsp;" + "新增组件")')">
+                        <table>
+                            <tr>
+                                <td>
+                                    <img border="0" src='/Content/images/jingbaihui/lipin.png' align='middle' style="width: 24px; height: 24px;" />
+                                </td>
+                                <td>新增组件</td>
+                            </tr>
+                        </table>
+                    </li>
+                </ul>
+            </div>
+
+            <div title="管理报表">
+                <ul class="leftMenuUl">
+
+                    <li title="" onclick="MenuClick('/Equipment/Index/','@("<img border=\"0\" src=\"/Content/images/jingbaihui/gongsi.png\" align=\"middle\" style=\"width:16px;height:16px;margin-top:-4px;\">&nbsp;" + "设备效能报表")')">
+                        <table>
+                            <tr>
+                                <td>
+                                    <img border="0" src='/Content/images/jingbaihui/gongsi.png' align='middle' style="width: 24px; height: 24px;" />
+                                </td>
+                                <td><a href="###" title="设备效能报表" class="easyui-tooltip">设备效能报表</a></td>
+                            </tr>
+                        </table>
+                    </li>
+
+                    <li onclick="MenuClick('###','@("<img border=\"0\" src=\"/Content/images/jingbaihui/lipin.png\" align=\"middle\" style=\"width:16px;height:16px;margin-top:-4px;\">&nbsp;" + "生成加工报表")')">
+                        <table>
+                            <tr>
+                                <td>
+                                    <img border="0" src='/Content/images/jingbaihui/lipin.png' align='middle' style="width: 24px; height: 24px;" />
+                                </td>
+                                <td>生成加工报表</td>
+                            </tr>
+                        </table>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    @*<div data-options="region:'east',split:true,collapsed:true,title:'East'" style="width: 100px; padding: 10px;">east region</div>*@
+    <div data-options="region:'south',border:false" style="height: 20px; text-align: center;">版权所有：天津慧通科技有限责任公司</div>
+    <div data-options="region:'center',tabWidth:120" id="tb" style="padding: 0px; width: auto;">
+        @*<input type="button" id="btnExp" value="导出" />*@
+    </div>
+    <div id="tab_rightmenu" class="easyui-menu" style="width: 150px;">
+        <!-- 	<div name="tab_menu-tabclose">关闭</div> -->
+        <div name="tab_menu-tabcloseall">关闭全部标签</div>
+        <div name="tab_menu-tabcloseother">关闭其他标签</div>
+        <div class="menu-sep"></div>
+        <div name="tab_menu-tabcloseright">关闭右侧标签</div>
+        <div name="tab_menu-tabcloseleft">关闭左侧标签</div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    /**
+ * 刷新tab
+ *
+    *example: {tabTitle:'tabTitle',url:'refreshUrl'}
+    *如果tabTitle为空，则默认刷新当前选中的tab
+    *如果url为空，则默认以原来的url进行reload
+    */
+    function refreshTab(cfg) {
+        var refresh_tab = cfg.tabTitle ? $('#tb').tabs('getTab', cfg.tabTitle) : $('#tb').tabs('getSelected');
+        if (refresh_tab && refresh_tab.find('iframe').length > 0) {
+            var _refresh_ifram = refresh_tab.find('iframe')[0];
+            var refresh_url = cfg.url ? cfg.url : _refresh_ifram.src;
+            //_refresh_ifram.src = refresh_url;
+            _refresh_ifram.contentWindow.location.href = refresh_url;
+        }
+    }
+    function MenuClick(url, title) {
+        if ($('#tb').tabs('exists', title)) {
+            $('#tb').tabs('select', title);
+            refreshTab({ tabTitle: title, url: url });
+        } else {
+            //window.screen.availWidth 返回当前屏幕宽度(空白空间)
+            //window.screen.availHeight 返回当前屏幕高度(空白空间)
+            var height = window.screen.availHeight - 210;
+
+            var width = window.screen.availWidth - 215;
+            var content = '<div style="width:100%;height:100%;"><iframe scrolling="auto"  framespacing=0 marginheight=0 marginwidth=0 frameborder="0" id="ParentFrame"   src="' + url + '" style="width:100%;height:99%;"></iframe></div>';
+            //var content = '<iframe scrolling="auto"  framespacing=0 marginheight=0 marginwidth=0 frameborder="0"   src="' + url + '" style="width:'+width+'px;height:'+height+'px;overflow:scroll;"></iframe>';
+            $('#tb').tabs('add', {
+                title: title,
+                content: content,
+                closable: true,
+                width: 'auto',
+                height: 'auto',
+                padding: '0px'//,
+                //tools: [{
+                //    iconCls: 'icon-nav-example'
+                //    //,
+                //    //handler:function(){
+                //    //    alert('refresh');
+                //    //}
+                //}]
+
+            });
+
+            //$('#tb').tabs('add', {
+            //    title: title,
+            //    href: url,
+            //    closable: true
+            //});
+
+        }
+    }
+    $(function () {
+        //$('#tb').tabs({
+        //    height: $("#tb").parent().height(),
+        //    width: "auto"
+        //});
+        //  <link href="~/Plug/themes/default/easyui.css" rel="stylesheet" id="linkThemes" />
+        $("#changethemes").change(function () {
+            var themes = $(this).val();
+            $("#linkThemes").attr("href", "/Plug/themes/" + $(this).val() + "/easyui.css");
+
+            var allTabs = $('#tb').tabs('tabs');
+            $.each(allTabs, function () {
+                var tab = this;
+                tab.find('iframe').contents().find("#linkThemes").attr("href", "/Plug/themes/" + themes + "/easyui.css");
+            });
+            $.post("/Home/ChangeThemes", { "themesName": themes }, function (result) {
+                if (result != "ok") {
+                    alert(result);
+                }
+
+            });
+        });
+        //$("#changethemes").change();
+    })
+</script>
+
+<script type="text/javascript">
+<!--
+    $(function () {
+        var tabsId = 'tb';//tabs页签Id
+        var tab_rightmenuId = 'tab_rightmenu';//tabs右键菜单Id
+
+        //绑定tabs的右键菜单
+        $("#" + tabsId).tabs({
+            onContextMenu: function (e, title) {//这时去掉 tabsId所在的div的这个属性：class="easyui-tabs"，否则会加载2次
+                e.preventDefault();
+                $('#' + tab_rightmenuId).menu('show', {
+                    left: e.pageX,
+                    top: e.pageY
+                }).data("tabTitle", title);
+            }
+        });
+
+        //实例化menu的onClick事件
+        $("#" + tab_rightmenuId).menu({
+            onClick: function (item) {
+                CloseTab(tabsId, tab_rightmenuId, item.name);
+            }
+        });
+
+    });
+
+    /**
+        tab关闭事件
+        param	tabId		tab组件Id
+    param	tabMenuId	tab组件右键菜单Id
+    param	type		tab组件右键菜单div中的name属性值
+    */
+    function CloseTab(tabId, tabMenuId, type) {
+        //tab组件对象
+        var tabs = $('#' + tabId);
+        //tab组件右键菜单对象
+        var tab_menu = $('#' + tabMenuId);
+
+        //获取当前tab的标题
+        var curTabTitle = tab_menu.data('tabTitle');
+
+        //关闭当前tab
+        if (type === 'tab_menu-tabclose') {
+            //通过标题关闭tab
+            tabs.tabs("close", curTabTitle);
+        }
+
+            //关闭全部tab
+        else if (type === 'tab_menu-tabcloseall') {
+            //获取所有关闭的tab对象
+            var closeTabsTitle = getAllTabObj(tabs);
+            //循环删除要关闭的tab
+            $.each(closeTabsTitle, function () {
+                var title = this;
+                tabs.tabs('close', title);
+            });
+        }
+
+            //关闭其他tab
+        else if (type === 'tab_menu-tabcloseother') {
+            //获取所有关闭的tab对象
+            var closeTabsTitle = getAllTabObj(tabs);
+            //循环删除要关闭的tab
+            $.each(closeTabsTitle, function () {
+                var title = this;
+                if (title != curTabTitle) {
+                    tabs.tabs('close', title);
+                }
+            });
+        }
+
+            //关闭当前左侧tab
+        else if (type === 'tab_menu-tabcloseleft') {
+            //获取所有关闭的tab对象
+            var closeTabsTitle = getLeftToCurrTabObj(tabs, curTabTitle);
+            //循环删除要关闭的tab
+            $.each(closeTabsTitle, function () {
+                var title = this;
+                tabs.tabs('close', title);
+            });
+        }
+
+            //关闭当前右侧tab
+        else if (type === 'tab_menu-tabcloseright') {
+            //获取所有关闭的tab对象
+            var closeTabsTitle = getRightToCurrTabObj(tabs, curTabTitle);
+            //循环删除要关闭的tab
+            $.each(closeTabsTitle, function () {
+                var title = this;
+                tabs.tabs('close', title);
+            });
+        }
+    }
+
+    /**
+        获取所有关闭的tab对象
+     param	tabs	tab组件
+    */
+    function getAllTabObj(tabs) {
+        //存放所有tab标题
+        var closeTabsTitle = [];
+        //所有所有tab对象
+        var allTabs = tabs.tabs('tabs');
+        $.each(allTabs, function () {
+            var tab = this;
+            var opt = tab.panel('options');
+            //获取标题
+            var title = opt.title;
+            //是否可关闭 ture:会显示一个关闭按钮，点击该按钮将关闭选项卡
+            var closable = opt.closable;
+            if (closable) {
+                closeTabsTitle.push(title);
+            }
+        });
+        return closeTabsTitle;
+    }
+
+    /**
+        获取左侧第一个到当前的tab
+    param	tabs		tab组件
+    param	curTabTitle	到当前的tab
+    */
+    function getLeftToCurrTabObj(tabs, curTabTitle) {
+        //存放所有tab标题
+        var closeTabsTitle = [];
+        //所有所有tab对象
+        var allTabs = tabs.tabs('tabs');
+        for (var i = 0; i < allTabs.length; i++) {
+            var tab = allTabs[i];
+            var opt = tab.panel('options');
+            //获取标题
+            var title = opt.title;
+            //是否可关闭 ture:会显示一个关闭按钮，点击该按钮将关闭选项卡
+            var closable = opt.closable;
+            if (closable) {
+                //alert('title' + title + '  curTabTitle:' + curTabTitle);
+                if (title == curTabTitle) {
+                    return closeTabsTitle;
+                }
+                closeTabsTitle.push(title);
+            }
+        }
+        return closeTabsTitle;
+    }
+
+    /**
+    获取当前到右侧最后一个的tab
+    param	tabs		tab组件
+    param	curTabTitle	到当前的tab
+    */
+    function getRightToCurrTabObj(tabs, curTabTitle) {
+        //存放所有tab标题
+        var closeTabsTitle = [];
+        //所有所有tab对象
+        var allTabs = tabs.tabs('tabs');
+        for (var i = (allTabs.length - 1) ; i >= 0; i--) {
+            var tab = allTabs[i];
+            var opt = tab.panel('options');
+            //获取标题
+            var title = opt.title;
+            //是否可关闭 ture:会显示一个关闭按钮，点击该按钮将关闭选项卡
+            var closable = opt.closable;
+            if (closable) {
+                //alert('title' + title + '  curTabTitle:' + curTabTitle);
+                if (title == curTabTitle) {
+                    return closeTabsTitle;
+                }
+                closeTabsTitle.push(title);
+            }
+        }
+        return closeTabsTitle;
+    }
+    //-->
+</script>

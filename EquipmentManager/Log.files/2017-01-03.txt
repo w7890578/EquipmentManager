@@ -1,0 +1,188 @@
+---------------------------------------
+日志时间:2017-01-03 18:05:39
+尚未对布局页“~/Views/Shared/_Layout.cshtml”调用“RenderBody”方法。
+---------------------------------------
+
+---------------------------------------
+日志时间:2017-01-03 18:07:49
+尚未对布局页“~/Views/Shared/_Layout.cshtml”调用“RenderBody”方法。
+---------------------------------------
+
+---------------------------------------
+日志时间:2017-01-03 18:08:51
+SqlDateTime 溢出。必须介于 1/1/1753 12:00:00 AM 和 12/31/9999 11:59:59 PM 之间。
+服务器名称:.,数据库名称:EquipmentManager
+SQL命令:INSERT INTO [dbo].[Equipment]([Id],[TeantId],[Code],[Name],[Address],[CreateTime],[CreateBy],[ModifyBy],[ModifyTime])VALUES(@Id,@TeantId,@Code,@Name,@Address,@CreateTime,@CreateBy,@ModifyBy,@ModifyTime)
+参数:
+@Id=00000000-0000-0000-0000-000000000000
+@TeantId=00000000-0000-0000-0000-000000000000
+@Code=
+@Name=sdf
+@Address=
+@CreateTime=0001/1/1 0:00:00
+@CreateBy=00000000-0000-0000-0000-000000000000
+@ModifyBy=00000000-0000-0000-0000-000000000000
+@ModifyTime=0001/1/1 0:00:00
+
+---------------------------------------
+
+---------------------------------------
+日志时间:2017-01-03 18:08:51
+SqlDateTime 溢出。必须介于 1/1/1753 12:00:00 AM 和 12/31/9999 11:59:59 PM 之间。
+---------------------------------------
+
+---------------------------------------
+日志时间:2017-01-03 18:10:18
+参数化查询 '(@Id uniqueidentifier,@TeantId uniqueidentifier,@Code nvarchar(4' 需要参数 '@Code'，但未提供该参数。
+服务器名称:.,数据库名称:EquipmentManager
+SQL命令:INSERT INTO [dbo].[Equipment]([Id],[TeantId],[Code],[Name],[Address],[CreateTime],[CreateBy],[ModifyBy],[ModifyTime])VALUES(@Id,@TeantId,@Code,@Name,@Address,@CreateTime,@CreateBy,@ModifyBy,@ModifyTime)
+参数:
+@Id=00000000-0000-0000-0000-000000000000
+@TeantId=00000000-0000-0000-0000-000000000000
+@Code=
+@Name=asdf
+@Address=
+@CreateTime=2017/1/3 18:10:18
+@CreateBy=00000000-0000-0000-0000-000000000000
+@ModifyBy=00000000-0000-0000-0000-000000000000
+@ModifyTime=2017/1/3 18:10:18
+
+---------------------------------------
+
+---------------------------------------
+日志时间:2017-01-03 18:10:18
+参数化查询 '(@Id uniqueidentifier,@TeantId uniqueidentifier,@Code nvarchar(4' 需要参数 '@Code'，但未提供该参数。
+---------------------------------------
+
+---------------------------------------
+日志时间:2017-01-03 18:10:51
+参数化查询 '(@Id uniqueidentifier,@TeantId uniqueidentifier,@Code nvarchar(4' 需要参数 '@Code'，但未提供该参数。
+服务器名称:.,数据库名称:EquipmentManager
+SQL命令:INSERT INTO [dbo].[Equipment]([Id],[TeantId],[Code],[Name],[Address],[CreateTime],[CreateBy],[ModifyBy],[ModifyTime])VALUES(@Id,@TeantId,@Code,@Name,@Address,@CreateTime,@CreateBy,@ModifyBy,@ModifyTime)
+参数:
+@Id=8317f215-08f8-414a-b6db-52056ca19a24
+@TeantId=00000000-0000-0000-0000-000000000000
+@Code=
+@Name=asdf
+@Address=
+@CreateTime=2017/1/3 18:10:51
+@CreateBy=00000000-0000-0000-0000-000000000000
+@ModifyBy=00000000-0000-0000-0000-000000000000
+@ModifyTime=2017/1/3 18:10:51
+
+---------------------------------------
+
+---------------------------------------
+日志时间:2017-01-03 18:10:51
+参数化查询 '(@Id uniqueidentifier,@TeantId uniqueidentifier,@Code nvarchar(4' 需要参数 '@Code'，但未提供该参数。
+---------------------------------------
+
+---------------------------------------
+日志时间:2017-01-03 18:17:07
+参数化查询 '(@Id uniqueidentifier,@TeantId uniqueidentifier,@Code nvarchar(4' 需要参数 '@Code'，但未提供该参数。
+服务器名称:.,数据库名称:EquipmentManager
+SQL命令:INSERT INTO [dbo].[Equipment]([Id],[TeantId],[Code],[Name],[Address],[CreateTime],[CreateBy],[ModifyBy],[ModifyTime])VALUES(@Id,@TeantId,@Code,@Name,@Address,@CreateTime,@CreateBy,@ModifyBy,@ModifyTime)
+参数:
+@Id=348de21a-6593-48bd-9e56-f3a81de61860
+@TeantId=00000000-0000-0000-0000-000000000000
+@Code=
+@Name=asdf
+@Address=
+@CreateTime=2017/1/3 18:12:18
+@CreateBy=00000000-0000-0000-0000-000000000000
+@ModifyBy=00000000-0000-0000-0000-000000000000
+@ModifyTime=2017/1/3 18:12:18
+
+---------------------------------------
+
+---------------------------------------
+日志时间:2017-01-03 18:19:22
+参数化查询 '(@Id uniqueidentifier,@TeantId uniqueidentifier,@Code nvarchar(4' 需要参数 '@Code'，但未提供该参数。
+服务器名称:.,数据库名称:EquipmentManager
+SQL命令:INSERT INTO [dbo].[Equipment]([Id],[TeantId],[Code],[Name],[Address],[CreateTime],[CreateBy],[ModifyBy],[ModifyTime])VALUES(@Id,@TeantId,@Code,@Name,@Address,@CreateTime,@CreateBy,@ModifyBy,@ModifyTime)
+参数:
+@Id=348de21a-6593-48bd-9e56-f3a81de61860
+@TeantId=00000000-0000-0000-0000-000000000000
+@Code=
+@Name=asdf
+@Address=
+@CreateTime=2017/1/3 18:12:18
+@CreateBy=00000000-0000-0000-0000-000000000000
+@ModifyBy=00000000-0000-0000-0000-000000000000
+@ModifyTime=2017/1/3 18:12:18
+
+---------------------------------------
+
+---------------------------------------
+日志时间:2017-01-03 18:19:27
+参数化查询 '(@Id uniqueidentifier,@TeantId uniqueidentifier,@Code nvarchar(4' 需要参数 '@Code'，但未提供该参数。
+---------------------------------------
+
+---------------------------------------
+日志时间:2017-01-03 18:24:10
+参数化查询 '(@Id uniqueidentifier,@TeantId uniqueidentifier,@Code nvarchar(4' 需要参数 '@Code'，但未提供该参数。
+服务器名称:.,数据库名称:EquipmentManager
+SQL命令:INSERT INTO [dbo].[Equipment]([Id],[TeantId],[Code],[Name],[Address],[CreateTime],[CreateBy],[ModifyBy],[ModifyTime])VALUES(@Id,@TeantId,@Code,@Name,@Address,@CreateTime,@CreateBy,@ModifyBy,@ModifyTime)
+参数:
+@Id=c5d69ee6-c8d0-408e-9d98-bd89c0f36778
+@TeantId=00000000-0000-0000-0000-000000000000
+@Code=
+@Name=wtetwr
+@Address=
+@CreateTime=2017/1/3 18:24:10
+@CreateBy=00000000-0000-0000-0000-000000000000
+@ModifyBy=00000000-0000-0000-0000-000000000000
+@ModifyTime=2017/1/3 18:24:10
+
+---------------------------------------
+
+---------------------------------------
+日志时间:2017-01-03 18:24:10
+参数化查询 '(@Id uniqueidentifier,@TeantId uniqueidentifier,@Code nvarchar(4' 需要参数 '@Code'，但未提供该参数。
+---------------------------------------
+
+---------------------------------------
+日志时间:2017-01-03 18:42:01
+“@Name”附近有语法错误。
+服务器名称:.,数据库名称:EquipmentManager
+SQL命令: SELECT * FROM [dbo].[Equipment]  WHERE 1=1  AND [Name] like %@Name% 
+参数:
+@Name=是
+
+---------------------------------------
+
+---------------------------------------
+日志时间:2017-01-03 18:42:02
+“@Name”附近有语法错误。
+---------------------------------------
+
+---------------------------------------
+日志时间:2017-01-03 18:42:11
+“@Name”附近有语法错误。
+服务器名称:.,数据库名称:EquipmentManager
+SQL命令: SELECT * FROM [dbo].[Equipment]  WHERE 1=1  AND [Name] like %@Name% 
+参数:
+@Name=是
+
+---------------------------------------
+
+---------------------------------------
+日志时间:2017-01-03 18:42:11
+“@Name”附近有语法错误。
+---------------------------------------
+
+---------------------------------------
+日志时间:2017-01-03 19:56:04
+必须声明标量变量 "@TeantId"。
+服务器名称:.,数据库名称:EquipmentManager
+SQL命令:UPDATE [dbo].[Equipment] SET [TeantId]=@TeantId,[Code]=@Code,[Name]=@Name,[Address]=@Address,[CreateTime]=@CreateTime,[CreateBy]=@CreateBy,[ModifyBy]=@ModifyBy,[ModifyTime]=@ModifyTime WHERE [Id]=@Id
+参数:
+@Id=8c71955e-a1b9-423e-b72c-7ea0b2697870
+
+---------------------------------------
+
+---------------------------------------
+日志时间:2017-01-03 19:56:04
+必须声明标量变量 "@TeantId"。
+---------------------------------------
+

@@ -1,0 +1,124 @@
+﻿@{
+    ViewBag.Title = "设备信息";
+}
+<script src="/Scripts/Equipment/Equipment.js"></script>
+
+<div class="searchdiv">
+    <fieldset>
+        <legend>信息查询</legend>
+        <form id="fmSearch" method="post">
+            <table>
+                <tr>
+                    <td style="width: 150px; text-align: right;">设备名称：</td>
+                    <td style="width: 150px;">
+                        <input type="text" name="Name" placeholder="支持模糊查询" />
+                    </td>
+                    <td style="width: 150px; text-align: right;">设备编码：</td>
+                    <td style="width: 150px;">
+                        <input type="text" name="Code" placeholder="支持模糊查询" />
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="width: 150px; text-align: right;">设备分类：</td>
+                    <td style="width: 150px;">
+                        <input type="text" name="Code" placeholder="设备分类" />
+                    </td>
+                    <td style="width: 150px; text-align: right;">设备描述：</td>
+                    <td style="width: 150px;">
+                        <input type="text" name="Code" placeholder="设备描述" />
+                    </td>
+                    <td>
+                        &nbsp;&nbsp;<a id="btnSearch" href="###" class="easyui-linkbutton"
+                                       data-options="iconCls:'icon-search'">
+                            &nbsp;查&nbsp;&nbsp;询&nbsp;&nbsp;&nbsp;
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </fieldset>
+</div>
+<table id="grid" style="width: 100%;" class="easyui-datagrid">
+    <thead>
+        <tr>
+            <th data-options="field: 'Id', align: 'center', hidden: true">主键</th>
+            <th data-options="field: 'Name', align: 'center',sortable:'true'">名称</th>
+            <th data-options="field: 'Code', align: 'center',sortable:'true'">编码</th>
+            <th data-options="field: 'Classify', align: 'center',sortable:'true'">分类</th>
+            <th data-options="field: 'Address', align: 'center',sortable:'true'">位置</th>
+            <th data-options="field: 'Description', align: 'center',sortable:'true'">描述</th>
+            <th data-options="field: 'ImageLink', align: 'center',sortable:'true',formatter:ShowImgFormater">设备图片</th>
+            <th data-options="field: 'CreateTime', align: 'center',sortable:'true'">创建时间</th>
+            <th data-options="field: 'ModifyTime', align: 'center',sortable:'true'">修改时间</th>
+        </tr>
+    </thead>
+</table>
+
+<div style="text-align: center; width: 100%; color: red; display: none;" id="emptymsgdiv">没有查询到相关数据</div>
+
+<div id="DivAdd" class="easyui-dialog" style="width: 400px;height:400px;  padding: 10px 10px 40px 0px;"
+     closed="true" resizable="true" modal="true" data-options="iconCls: 'icon-edit',buttons: '#dlg-buttons'">
+
+    <form id="fmDetail" method="post" novalidate enctype="multipart/form-data">
+        <input name="Id" type="hidden" value="" />
+        <input name="CreateTime" type="hidden" value="" />
+        <input name="CreateBy" type="hidden" value="" />
+        <input name="ModifyBy" type="hidden" value="" />
+        <input name="ModifyTime" type="hidden" value="" />
+        <input name="ImageLink" type="hidden" value="" />
+        <table class="fmdetail_table">
+            <tr>
+                <td style="width: 100px; text-align: right;">名称：</td>
+                <td>
+                    <input type="text" class="easyui-validatebox easyui_textbox" name="Name" id="Name" required="required" />
+                </td>
+            </tr>
+
+            <tr>
+                <td style="width: 100px; text-align: right;">编码：</td>
+                <td>
+                    <input type="text" class="easyui-validatebox easyui_textbox" name="Code" id="Code" required="required" />
+                </td>
+            </tr>
+
+            <tr>
+                <td style="width: 100px; text-align: right;">分类：</td>
+                <td>
+                    <input type="text" class="easyui-validatebox easyui_textbox" name="Classify" id="Classify" required="required" />
+                </td>
+            </tr>
+
+            <tr>
+                <td style="width: 100px; text-align: right;">位置：</td>
+                <td>
+                    <input type="text" class="easyui-validatebox easyui_textbox" name="Address" id="Address" required="required" />
+                </td>
+            </tr>
+
+            <tr>
+                <td style="width: 100px; text-align: right;">描述：</td>
+                <td>
+                    <input type="text" class="easyui-validatebox easyui_textbox" name="Description" id="Description" required="required" />
+                </td>
+            </tr>
+            <tr id="tr_ImageView" style="display:none;">
+                <td style="width: 100px; text-align: right;">设备图片预览：</td>
+                <td>
+                    <img id="ImageView" src="###" style="width:100px;height:100px;" />
+                </td>
+            </tr>
+            <tr id="tr_Image">
+                <td style="width: 100px; text-align: right;">设备图片：</td>
+                <td>
+                    <input type="file" name="EquipmentImageLink" id="EquipmentImageLink" />
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <div style="text-align: center; padding-top: 10px" id="DivAddToolBar">
+        <a href="javascript:void(0)" class="easyui-linkbutton" id="btnAddOK" iconcls="icon-ok" onclick="SaveEntity()">确&nbsp;定&nbsp;&nbsp;</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconcls="icon-cancel" onclick="javascript:$('#DivAdd').dialog('close')">关&nbsp;闭&nbsp;&nbsp;</a>
+    </div>
+</div>

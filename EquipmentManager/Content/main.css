@@ -1,0 +1,431 @@
+﻿* {
+    font-size: 12px;
+}
+
+body {
+    font-family: "Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu;
+    padding: 20px;
+    font-size: 12px;
+    margin: 0;
+}
+
+img {
+    border: 0px;
+    vertical-align: middle;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 15px;
+}
+
+.demo-info {
+    padding: 0 0 12px 0;
+}
+
+.demo-tip {
+    display: none;
+}
+
+.panel-title {
+    font-weight: normal;
+}
+
+.leftMenuUl {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+    .leftMenuUl li {
+        width: 181px;
+        height: 40px;
+        list-style-type: none;
+        padding-left: 15px;
+        padding-top: 8px;
+        text-align: left;
+        font-size: 14px;
+    }
+
+        .leftMenuUl li:hover {
+            background-color: #E0DFDF;
+            cursor: pointer;
+        }
+
+        .leftMenuUl li a {
+            text-decoration: none;
+        }
+
+        .leftMenuUl li table tr td {
+            font-size: 15px;
+        }
+
+            .leftMenuUl li table tr td a {
+                font-size: 15px;
+                text-decoration: none;
+            }
+
+.searchdiv {
+    padding: 10px;
+}
+
+.msgdiv {
+    font-family: Microsoft Yahei;
+    background-color: #C3F8DA;
+    width: 100px;
+    height: 20px;
+    color: green;
+    font-size: 15px;
+    position: fixed;
+    top: 10%;
+    left: 45%;
+    border-radius: 5px;
+    padding: 3px;
+    text-align: center;
+    z-index: 99999;
+    display: none;
+}
+
+.ershou_nav {
+    height: 42px;
+    background-color: white;
+    width: 100%;
+    line-height: 40px;
+    color: black;
+    font-family: 'Microsoft Yahei';
+    font-size: 14px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.logo_nav {
+    height: 42px;
+    padding: 0px 22px;
+}
+
+.jfl {
+    float: left;
+}
+
+.tip_nav {
+    font-size: 18px;
+}
+
+.user_nav1 {
+    padding-right: 40px;
+}
+
+.user_nav {
+    padding: 0px 10px 0px 10px;
+}
+
+.jfr {
+    float: right;
+}
+
+.user_nav2 {
+}
+
+.juese_nav {
+    text-align: center;
+    width: 162px;
+    position: relative;
+}
+
+.tip_nav a, .user_nav a {
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.mt10 {
+    margin-top: 10px;
+}
+
+.tf {
+    font-family: "\5FAE\8F6F\96C5\9ED1",微软雅黑,"Microsoft Yahei",雅黑\9,Arial;
+}
+
+.form_box {
+    height: 100%;
+    overflow-y: auto;
+}
+
+.xtgg {
+    width: 100%;
+    height: auto;
+    margin-top: 25px;
+}
+
+    .xtgg dt {
+        width: 138px;
+        height: 60px;
+        line-height: 44px;
+        text-align: center;
+        color: #f60;
+        font-size: 24px;
+        font-weight: bold;
+        margin-left: 70px;
+        background: url(/Content/images/gonggao/xxgg_bt.png) no-repeat;
+    }
+
+    .xtgg dd {
+        width: 100%;
+        background: url(/Content/images/gonggao/img_bg.png) repeat-y 97px 0;
+        overflow: hidden;
+        min-width: 900px;
+    }
+
+.clearfix {
+    zoom: 1;
+}
+
+.left_nr {
+    width: 200px;
+    height: 100%;
+    float: left;
+    overflow: hidden;
+}
+
+.time1, .timen {
+    margin-left: 60px;
+}
+
+.time1, .timen {
+    width: 76px;
+    height: 76px;
+    line-height: 76px;
+    text-align: center;
+    background: url(/Content/images/gonggao/time_bg.jpg) no-repeat;
+    font-size: 14px;
+    color: #f60;
+    font-weight: bold;
+}
+
+.tf {
+    font-family: "\5FAE\8F6F\96C5\9ED1",微软雅黑,"Microsoft Yahei",雅黑\9,Arial;
+}
+
+.mt_50 {
+    margin-top: 50px;
+}
+
+.right_nr {
+    width: 78%;
+    height: auto;
+    overflow: hidden;
+    float: left;
+}
+
+.left_nr img {
+    margin-left: 88px;
+}
+
+.gg_bt {
+    height: 29px;
+    line-height: 29px;
+    padding: 2px 10px;
+    font-size: 16px;
+    color: #f60;
+    border: 1px solid #feb280;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+.right_nr p {
+    color: #333;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 20px;
+}
+
+.mt20 {
+    margin-top: 20px;
+}
+
+.nr_img {
+    padding-left: 20px;
+}
+
+.xtgg .timeyear {
+    width: 100%;
+    background: url(/Content/images/gonggao/time_year.jpg) repeat-y 97px 0;
+    overflow: hidden;
+    padding: 30px 0;
+}
+/*各类机床状态的进度条样式*/
+.Progress {
+    position: relative;
+    width: 100px; /* 宽度 */
+    /*border: 1px solid #B1D632;*/
+    padding: 1px;
+}
+
+    .Progress div {
+        display: block;
+        position: relative;
+        background: white; /* 进度条背景颜色 */
+        color: #333333;
+        height: 20px; /* 高度 */
+        line-height: 20px; /* 必须和高度一致，文本才能垂直居中 */
+        background: #090;
+    }
+
+        .Progress div span {
+            position: absolute;
+            width: 100px; /* 宽度 */
+            text-align: center;
+            font-weight: bold;
+        }
+
+.YunXin div {
+    background: #90ECB8;
+}
+
+.GuanJi div {
+    background: #a8a8a8;
+}
+
+.KongXian div {
+    background: #fbf7a4;
+}
+
+.BaoJing div {
+    background: red;
+}
+
+.YunXin_div {
+    background-color: green;
+}
+
+.GuanJi_div {
+    background-color: gray;
+}
+
+.KongXian_div {
+    background-color: yellow;
+}
+
+.BaoJing_div {
+    background-color: red;
+}
+
+.History_div {
+    width: 1000px;
+    height: 40px;
+    line-height: 40px;
+    overflow: hidden;
+    margin: 20px;
+    padding: 0px;
+}
+
+.History div {
+    height: 100%;
+    float: left;
+}
+
+.labelstatus {
+    border-radius: 5px;
+    color: white;
+    height: 20px;
+    padding: 4px;
+    line-height: 20px;
+    font-family: Microsoft Yahei;
+    font-weight: 500;
+    display: block;
+    /*width: 38px;*/
+}
+
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: green;
+}
+
+.gray {
+    background-color: gray;
+}
+
+/*表格样式*/
+.cclasstable {
+    padding: 0 10px;
+    border-bottom: solid 1px #E8EAEC; /*border-collapse:collapse;*/
+    border-collapse: separate;
+    border-spacing: 10px 0;
+    text-align: center;
+}
+
+    .cclasstable td {
+        height: 23px;
+        border: solid 1px #E8EAEC;
+        text-align: center;
+        background: url(tab-bg.png) repeat-x;
+        padding: 0;
+    }
+
+        .cclasstable td a:link {
+            color: #0083D6;
+            text-decoration: none !important;
+        }
+
+        .cclasstable td a:visited {
+            color: #0083D6;
+        }
+
+.classtable {
+    border: 1px solid #C8CCD1;
+    border-width: 1px 0 0 1px;
+    width: 100%;
+    font-size: 12px;
+    text-align: center;
+}
+
+    .classtable th {
+        background: #E5EFFB;
+        white-space: nowrap;
+    }
+
+    .classtable th,
+    .classtable td {
+        padding: 5px 10px;
+        border: 1px solid #C8CCD1;
+        border-width: 0 1px 1px 0;
+        color: #555;
+        line-height: 18px;
+        vertical-align: top;
+    }
+/*表格样式 end*/
+.tableborders {
+    background-color: #C8CCD1;
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+}
+
+    .tableborders tr td {
+        background-color: White;
+    }
+
+.tdodd {
+    background: #E5EFFB;
+}
+
+.easyui_textbox {
+    width: 200px;
+    height: 18px;
+    line-height: 18px;
+}
+
+.fmdetail_table {
+    width: 100%;
+    height: 100%;
+}
+
+    .fmdetail_table tr td {
+        /*margin: 5px;*/
+    }

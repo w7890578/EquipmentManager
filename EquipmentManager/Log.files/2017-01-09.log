@@ -1,0 +1,147 @@
+
+2017-01-09 11:11:57 6806  EquipmentManager.Controllers.Controllers.BaseController.OnException
+System.ArgumentException：已添加了具有相同键的项。
+   在 System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
+   在 System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
+   在 JingBaiHui.Common.Helper.DataHelper.Update(DataBase db, String tableName, Dictionary`2 fields, Dictionary`2 filters) 位置 E:\MyProject\礼品卡兑换系统\礼品卡兑换系统\礼品卡兑换系统\JingBaiHui.Common\Helper\DataHelper.cs:行号 100
+   在 EquipmentManager.Controllers.Dao.EquipmentDao.Update(Equipment entity) 位置 E:\MyProject\EquipmentManager\EquipmentManager.Controllers\Dao\EquipmentDao.cs:行号 152
+   在 EquipmentManager.Controllers.Provider.EquipmentProvider.Update(Equipment entity) 位置 E:\MyProject\EquipmentManager\EquipmentManager.Controllers\Provider\EquipmentProvider.cs:行号 130
+   在 EquipmentManager.Controllers.Controllers.EquipmentController.Save(Equipment entity) 位置 E:\MyProject\EquipmentManager\EquipmentManager.Controllers\Controllers\EquipmentController.cs:行号 54
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+
+
+2017-01-09 11:12:11 5936  EquipmentManager.Controllers.Controllers.BaseController.OnException
+System.ArgumentException：已添加了具有相同键的项。
+   在 System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
+   在 System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
+   在 JingBaiHui.Common.Helper.DataHelper.Update(DataBase db, String tableName, Dictionary`2 fields, Dictionary`2 filters) 位置 E:\MyProject\礼品卡兑换系统\礼品卡兑换系统\礼品卡兑换系统\JingBaiHui.Common\Helper\DataHelper.cs:行号 100
+   在 EquipmentManager.Controllers.Dao.EquipmentDao.Update(Equipment entity) 位置 E:\MyProject\EquipmentManager\EquipmentManager.Controllers\Dao\EquipmentDao.cs:行号 152
+   在 EquipmentManager.Controllers.Provider.EquipmentProvider.Update(Equipment entity) 位置 E:\MyProject\EquipmentManager\EquipmentManager.Controllers\Provider\EquipmentProvider.cs:行号 130
+   在 EquipmentManager.Controllers.Controllers.EquipmentController.Save(Equipment entity) 位置 E:\MyProject\EquipmentManager\EquipmentManager.Controllers\Controllers\EquipmentController.cs:行号 54
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+
+
+2017-01-09 11:12:16 5324  EquipmentManager.Controllers.Controllers.BaseController.OnException
+System.ArgumentException：已添加了具有相同键的项。
+   在 System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
+   在 System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
+   在 JingBaiHui.Common.Helper.DataHelper.Update(DataBase db, String tableName, Dictionary`2 fields, Dictionary`2 filters) 位置 E:\MyProject\礼品卡兑换系统\礼品卡兑换系统\礼品卡兑换系统\JingBaiHui.Common\Helper\DataHelper.cs:行号 100
+   在 EquipmentManager.Controllers.Dao.EquipmentDao.Update(Equipment entity) 位置 E:\MyProject\EquipmentManager\EquipmentManager.Controllers\Dao\EquipmentDao.cs:行号 152
+   在 EquipmentManager.Controllers.Provider.EquipmentProvider.Update(Equipment entity) 位置 E:\MyProject\EquipmentManager\EquipmentManager.Controllers\Provider\EquipmentProvider.cs:行号 130
+   在 EquipmentManager.Controllers.Controllers.EquipmentController.Save(Equipment entity) 位置 E:\MyProject\EquipmentManager\EquipmentManager.Controllers\Controllers\EquipmentController.cs:行号 54
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+
+
+2017-01-09 11:12:36 8794  EquipmentManager.Controllers.Controllers.BaseController.OnException
+System.ArgumentException：已添加了具有相同键的项。
+   在 System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
+   在 System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
+   在 JingBaiHui.Common.Helper.DataHelper.Update(DataBase db, String tableName, Dictionary`2 fields, Dictionary`2 filters) 位置 E:\MyProject\礼品卡兑换系统\礼品卡兑换系统\礼品卡兑换系统\JingBaiHui.Common\Helper\DataHelper.cs:行号 100
+   在 EquipmentManager.Controllers.Dao.EquipmentDao.Update(Equipment entity) 位置 E:\MyProject\EquipmentManager\EquipmentManager.Controllers\Dao\EquipmentDao.cs:行号 152
+   在 EquipmentManager.Controllers.Provider.EquipmentProvider.Update(Equipment entity) 位置 E:\MyProject\EquipmentManager\EquipmentManager.Controllers\Provider\EquipmentProvider.cs:行号 130
+   在 EquipmentManager.Controllers.Controllers.EquipmentController.Save(Equipment entity) 位置 E:\MyProject\EquipmentManager\EquipmentManager.Controllers\Controllers\EquipmentController.cs:行号 54
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+
+
+2017-01-09 11:16:07 8812  EquipmentManager.Controllers.Controllers.BaseController.OnException
+System.ArgumentException：已添加了具有相同键的项。
+   在 System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
+   在 System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
+   在 JingBaiHui.Common.Helper.DataHelper.Update(DataBase db, String tableName, Dictionary`2 fields, Dictionary`2 filters) 位置 E:\MyProject\礼品卡兑换系统\礼品卡兑换系统\礼品卡兑换系统\JingBaiHui.Common\Helper\DataHelper.cs:行号 100
+   在 EquipmentManager.Controllers.Dao.EquipmentDao.Update(Equipment entity) 位置 E:\MyProject\EquipmentManager\EquipmentManager.Controllers\Dao\EquipmentDao.cs:行号 152
+   在 EquipmentManager.Controllers.Provider.EquipmentProvider.Update(Equipment entity) 位置 E:\MyProject\EquipmentManager\EquipmentManager.Controllers\Provider\EquipmentProvider.cs:行号 130
+   在 EquipmentManager.Controllers.Controllers.EquipmentController.Save(Equipment entity) 位置 E:\MyProject\EquipmentManager\EquipmentManager.Controllers\Controllers\EquipmentController.cs:行号 54
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+
+
+2017-01-09 11:49:44 7530  EquipmentManager.Controllers.Controllers.BaseController.OnException
+System.ArgumentException：已添加了具有相同键的项。
+   在 System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
+   在 System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
+   在 JingBaiHui.Common.Helper.DataHelper.Update(DataBase db, String tableName, Dictionary`2 fields, Dictionary`2 filters) 位置 E:\MyProject\礼品卡兑换系统\礼品卡兑换系统\礼品卡兑换系统\JingBaiHui.Common\Helper\DataHelper.cs:行号 108
+   在 EquipmentManager.Controllers.Dao.EquipmentDao.Update(Equipment entity) 位置 E:\MyProject\EquipmentManager\EquipmentManager.Controllers\Dao\EquipmentDao.cs:行号 152
+   在 EquipmentManager.Controllers.Provider.EquipmentProvider.Update(Equipment entity) 位置 E:\MyProject\EquipmentManager\EquipmentManager.Controllers\Provider\EquipmentProvider.cs:行号 130
+   在 EquipmentManager.Controllers.Controllers.EquipmentController.Save(Equipment entity) 位置 E:\MyProject\EquipmentManager\EquipmentManager.Controllers\Controllers\EquipmentController.cs:行号 61
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+
+
+2017-01-09 11:52:53 1670  EquipmentManager.Controllers.Controllers.BaseController.OnException
+System.ArgumentException：已添加了具有相同键的项。
+   在 System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
+   在 System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
+   在 JingBaiHui.Common.Helper.DataHelper.Update(DataBase db, String tableName, Dictionary`2 fields, Dictionary`2 filters) 位置 E:\MyProject\礼品卡兑换系统\礼品卡兑换系统\礼品卡兑换系统\JingBaiHui.Common\Helper\DataHelper.cs:行号 108
+   在 EquipmentManager.Controllers.Dao.EquipmentDao.Update(Equipment entity) 位置 E:\MyProject\EquipmentManager\EquipmentManager.Controllers\Dao\EquipmentDao.cs:行号 152
+   在 EquipmentManager.Controllers.Provider.EquipmentProvider.Update(Equipment entity) 位置 E:\MyProject\EquipmentManager\EquipmentManager.Controllers\Provider\EquipmentProvider.cs:行号 130
+   在 EquipmentManager.Controllers.Controllers.EquipmentController.Save(Equipment entity) 位置 E:\MyProject\EquipmentManager\EquipmentManager.Controllers\Controllers\EquipmentController.cs:行号 61
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+

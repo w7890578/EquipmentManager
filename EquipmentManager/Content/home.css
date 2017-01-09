@@ -1,0 +1,125 @@
+﻿
+
+html,body {background: #EDEDED;margin: 0;padding: 0; font-size:12px; font-family:"Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu;}
+a{ text-decoration:none;}
+.mainWin{ width:1000px; margin:0 auto;}
+.header{ height:70px;position:relative; }
+
+.header{background:url(http://www.lpk-hthr.com/viewpage/resource/phone.jpg) no-repeat 650px center;}
+
+.borderlink{ border:solid 1px red;}
+.header .logo{ position:absolute; background:url(http://www.lpk-hthr.com/viewpage/resource/logo.jpg) no-repeat left center; height:70px; width:100%;}
+.header .telephone{position:absolute;right:0; top:0; line-height:30px; font-weight:bold; color:#000;  font-size:30px; text-align:right;}
+.header .telephone span{color:#be1d2c; font-style:italic;}
+.content{margin-top:10px; position:relative;}
+.clear{ height:1px; clear:both; width:100%; overflow-y:hidden}
+.clear10{ height:10px; clear:both; width:100%; overflow-y:hidden}
+.indent2em{ text-indent:2em;}
+.t-r{ text-align:right;}
+.red{ color:Red;}
+input,select {outline: none;}
+textarea {outline: none;}
+
+.login{ height:420px;overflow:hidden; position:relative;}
+.login img{ margin:0; padding:0; border:0; width:1000px; height:420px; position:absolute;}
+.login-panel-bg{ position:absolute; width:260px; right:50px; top:40px; border:solid 1px #ddd; background:#fff url(http://www.lpk-hthr.com/viewpage/resource/login-panel.png) no-repeat 20px 20px; padding-top:85px; height:250px;filter:alpha(opacity=30); -moz-opacity:0.3;-khtml-opacity: 0.3;opacity: 0.3;}
+.login-panel-bg1{ position:absolute; width:260px; right:50px; top:40px; border:solid 1px #fff; padding-top:85px; height:250px;filter:alpha(opacity=40); -moz-opacity:0.4;-khtml-opacity: 0.4;opacity: 0.4;}
+.login-panel{ position:absolute; width:260px; right:50px; top:40px; padding-top:85px; height:250px;}
+.login-panel-username,.login-panel-password,.login-panel-checkcode{margin-bottom: 10px;width: 216px;border: 1px solid #A09E99; height: 15px;padding: 7px 3px;}
+.login-panel-username-lab{ position:absolute; width:100px; top:80px; margin-left:20px;}
+.login-panel-username{ margin-bottom:10px; margin-left:20px; position:absolute; top:100px;}
+.login-panel-password-lab{ position:absolute; width:100px; top:140px; margin-left:20px; }
+.login-panel-password{ margin-bottom:10px; margin-left:20px;background-position: 0 -35px;position:absolute; top:160px;}
+.login-panel-checkcode-lab{ position:absolute; width:100px; top:200px; margin-left:20px; }
+.login-panel-checkcode{margin-bottom:10px; margin-left:20px;background-position: 0 -70px; width:90px; position:absolute;top:220px;}
+.login-panel-checkcode-image{ height:33px; width:80px;position:absolute; top:220px; right:20px;}
+.login-panel-button{ cursor: pointer; height:35px; background:url(http://www.lpk-hthr.com/viewpage/resource/3GbRQKQ2Xb.png) center center; margin:0; padding:0; border:0; width:220px; position:absolute; top:260px; left:20px;  color:#FF9200}
+.login-panel-loginMsg{height:33px; width:220px; position:absolute; top:300px; left:20px; font-weight:bold; color:Red; line-height:33px;}
+
+.register{ }
+.info-item{border-radius: 2px;line-height:23px; }
+.goodinfo-item{ width:152px;_width:150px; float:left; overflow:hidden; text-align:center; padding:5px; border:solid 1px #fff;}
+.goodinfo-item img{ width:150px; height:150px; padding:1px; border:solid 1px #ddd;}
+.good-name{ line-height:25px; height:25px; overflow:hidden; width:100%;}
+.goodnum{ color:Red; font-weight:bold;}
+.gotonext{ height:30px; width:120px;}
+
+.register1{}
+.register1 .info-item { padding-top:10px; cursor:auto}
+.register1 .info-item .tbox{ margin:0; padding:2px;box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1); -moz-box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1); -webkit-box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);  border:solid 1px #ccc; height:23px; line-height:23px;}
+.reg-btn{height:35px;  width:120px}
+
+.viewinfo{}
+
+.footer{ background:#EDEDED url(http://www.lpk-hthr.com/viewpage/resource/footerbg.png) repeat-x top center; padding-top:10px; text-align:center; line-height:30px; color:#A0A0A0; padding-bottom:30px;}
+.footer a{color:#A0A0A0;}
+
+.mygoodinfo{ width:345px; overflow:hidden; padding-top:40px; }
+.mygoodinfo-item{ width:1000px; height:30px; line-height:30px;padding-left:20px;}
+.goodlist-image{ background:url(http://www.lpk-hthr.com/viewpage/resource/picture5.jpg) no-repeat left top; position:absolute; left:25px; width:134px; height:52px; top:54px;}
+
+.mycardinfo{ margin-bottom:10px;line-height:25px;}
+.mycardinfo .mycardinfo-image{ position:absolute; right:0;}
+.mycardinfo .item{ margin-bottom:10px; text-indent:10px;}
+.mycardinfo .item span{ color:#999;}
+.mycardinfo .item span.red{ color:Red;}
+
+.border2px{ border: solid 1px #cccccb;}
+.emptydiv{width:10px; overflow-x:hidden}
+.firendlinks{line-height:25px; margin-top:10px; text-align:left; border-bottom: 1px solid #D9D9D9; padding-bottom:10px;}
+.firendlinks a{ color:#A0A0A0}
+
+.txshxx{ margin:0; padding:0; border:0; background:#fff url(http://www.lpk-hthr.com/viewpage/resource/btn1.jpg) no-repeat left top; cursor:pointer;}
+.cxxzsp{ margin:0; padding:0; border:0; background:#fff url(http://www.lpk-hthr.com/viewpage/resource/btn2.jpg) no-repeat left top; cursor:pointer;}
+.cxtxkh{ margin:0; padding:0; border:0; background:#fff url(http://www.lpk-hthr.com/viewpage/resource/btn3.jpg) no-repeat left top; cursor:pointer;}
+.djfhxx{ margin:0; padding:0; border:0; background:#fff url(http://www.lpk-hthr.com/viewpage/resource/btn4.jpg) no-repeat left top; cursor:pointer;}
+.tc{ margin:0; padding:0; border:0; background:#fff url(http://www.lpk-hthr.com/viewpage/resource/btn5.jpg) no-repeat left top; cursor:pointer;}
+
+.groupname-img{background:url(http://www.lpk-hthr.com/viewpage/resource/ka.jpg) no-repeat 25px center; height:30px; line-height:30px; padding:5px 0 5px 70px; font-size:14px; font-weight:bold;}
+
+.loginfo,.loginfo tr,.loginfo td,.loginfo th{ border:none;}
+.cardstatus{ width:172px; height:120px; position:absolute; background:url(http://www.lpk-hthr.com/viewpage/resource/picture4.jpg) no-repeat left top;right: 10px;top: 130px; text-align:center; line-height:120px;  font-size:30px; text-indent:20px; color:#ffffff;}
+.cardstep1{ background:url(http://www.lpk-hthr.com/viewpage/resource/table.jpg) no-repeat left 0; height:60px; margin-bottom:10px;}
+.cardstep2{ background:url(http://www.lpk-hthr.com/viewpage/resource/table.jpg) no-repeat left -60px;height:60px; margin-bottom:10px;}
+.cardstep3{ background:url(http://www.lpk-hthr.com/viewpage/resource/table.jpg) no-repeat left -120px;height:60px; margin-bottom:10px;}
+
+.news-title{ text-align:center;width:790px; margin:0 auto;}
+.page-location{  width:790px; border-bottom:solid 1px #ddd;  margin:0 auto;height:28px; line-height:28px;}
+.page-location a{color:#BE1D2C;}
+.news-title h1{font-size:18px;}
+.page-redspan{ color:red;}
+
+
+.add-card-step1{ background:url(http://www.lpk-hthr.com/viewpage/resource/table1.jpg) no-repeat left 0; height:60px; margin-bottom:10px;}
+.add-card-step2{ background:url(http://www.lpk-hthr.com/viewpage/resource/table1.jpg) no-repeat left -60px;height:60px; margin-bottom:10px;}
+.add-card-step3{ background:url(http://www.lpk-hthr.com/viewpage/resource/table1.jpg) no-repeat left -120px;height:60px; margin-bottom:10px;}
+.add-card-step4{ background:url(http://www.lpk-hthr.com/viewpage/resource/table1.jpg) no-repeat left -180px;height:60px; margin-bottom:10px;}
+
+.add-card{width:700px; margin:0 auto;background:#fff url(http://www.lpk-hthr.com/viewpage/resource/middle.jpg) repeat-y left top;}
+.add-card-head{position:relative; height:40px;font-family:微软雅黑;background: url(http://www.lpk-hthr.com/viewpage/resource/up.jpg) no-repeat left top;}
+.add-card-head-no{position:absolute; left:40px;top:25px;font-size:18px;color:#999;}
+.add-card-head-cancel{position:absolute;width:32px;height:32px; right:60px;top:25px;font-size:18px; background: url(http://www.lpk-hthr.com/viewpage/resource/cancel1.jpg) no-repeat left top;margin:0;padding:0;border:0; cursor:pointer;}
+.add-card-head-cancel:hover{position:absolute;width:32px;height:32px; right:60px;top:25px;font-size:18px; background: url(http://www.lpk-hthr.com/viewpage/resource/cancel2.jpg) no-repeat left top;margin:0;padding:0;border:0;}
+.add-card-body-label{width:220px; float:left; font-size:14px;font-weight:bold; text-align:right;line-height:31px;}
+.add-card-body-input{line-height:31px;font-family:微软雅黑;}
+.add-card-body-input{width:420px; float:left;}
+.add-card-body-username{width: 240px;border: 1px solid #A09E99;height: 15px;padding: 7px 3px;}
+.add-card-body-password{width: 240px;border: 1px solid #A09E99;height: 15px;padding: 7px 3px;}
+.add-card-body-cbox{height:31px;position:relative;}
+.add-card-body-checkcode{position:absolute;width: 120px;border: 1px solid #A09E99;height: 15px;padding: 7px 3px;}
+.add-card-body-image{position:absolute;left:138px;top:0px;}
+.add-card-foot{background: url(http://www.lpk-hthr.com/viewpage/resource/down.jpg) no-repeat left top; clear:both;height:30px;}
+.add-card-btn{ text-align:center; margin-top:15px;}
+.add-card-msg{color:red;width:650px; margin:0 auto;font-family:宋体; line-height:27px;}
+.jxtj{ margin:0; padding:0; border:0; background:#fff url(http://www.lpk-hthr.com/viewpage/resource/btn6.jpg) no-repeat left top; cursor:pointer;}
+.xyb{ margin:0; padding:0; border:0; background:#fff url(http://www.lpk-hthr.com/viewpage/resource/btn7.jpg) no-repeat left top; cursor:pointer;}
+
+.default-main{ background-color:#fff}
+
+.main-content-left{ float:left;width:200px;background: #EDEDED;border: solid 1px #DADADA;border-radius: 4px 4px 0 0 }
+.container {border: solid 1px white;border-radius: 4px;min-height:550px; height:550px !important; _height:550px; _overflow:visible;}
+.main-content-left ul,.main-content-left li{list-style:none; margin:0; padding:0;border:0; line-height:28px;}
+.main-content-left li{border-bottom:dashed 1px #666;width:190px; margin:0 auto; overflow:hidden; text-indent:10px;}
+.main-content-left li.head{height:45px; line-height:45px;}
+.main-content-left li a{ color:#BE1D2C}
+.main-content-right{ float:right; width:790px;}
