@@ -1,0 +1,43 @@
+
+2017-01-10 11:57:14 0372  JingBaiHui.Common.DataBase.GetList
+System.Data.SqlClient.SqlException：在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+服务器名称:qds207592114.my3w.com,数据库名称:qds207592114_db
+SQL命令: SELECT * FROM [dbo].[Equipment]  WHERE 1=1 
+参数:
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 JingBaiHui.Common.DataBase.GetList[T](EntityConverter`1 converter, DbCommand cmd) 位置 E:\MyProject\礼品卡兑换系统\礼品卡兑换系统\礼品卡兑换系统\JingBaiHui.Common\Helper\DBHelper.cs:行号 308
+
+
+2017-01-10 11:57:14 1972  EquipmentManager.Controllers.Controllers.BaseController.OnException
+System.Data.SqlClient.SqlException：在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: Named Pipes Provider, error: 40 - 无法打开到 SQL Server 的连接)
+   在 JingBaiHui.Common.DataBase.GetList[T](EntityConverter`1 converter, DbCommand cmd) 位置 E:\MyProject\礼品卡兑换系统\礼品卡兑换系统\礼品卡兑换系统\JingBaiHui.Common\Helper\DBHelper.cs:行号 322
+   在 JingBaiHui.Common.DataBase.GetList[T](EntityConverter`1 converter, String cmdText, Dictionary`2 parameters, CommandType commandType) 位置 E:\MyProject\礼品卡兑换系统\礼品卡兑换系统\礼品卡兑换系统\JingBaiHui.Common\Helper\DBHelper.cs:行号 343
+   在 JingBaiHui.Common.Helper.DataHelper.GetList[T](DataBase db, String sql, Dictionary`2 parameters, EntityConverter`1 converter) 位置 E:\MyProject\礼品卡兑换系统\礼品卡兑换系统\礼品卡兑换系统\JingBaiHui.Common\Helper\DataHelper.cs:行号 72
+   在 EquipmentManager.Controllers.Dao.EquipmentDao.GetList(Equipment entity) 位置 E:\MyProject\github\EquipmentManager\EquipmentManager.Controllers\Dao\EquipmentDao.cs:行号 102
+   在 EquipmentManager.Controllers.Provider.EquipmentProvider.GetList(Equipment entity) 位置 E:\MyProject\github\EquipmentManager\EquipmentManager.Controllers\Provider\EquipmentProvider.cs:行号 97
+   在 EquipmentManager.Controllers.Provider.EquipmentProvider.GetRecordCount(Equipment searchEntity) 位置 E:\MyProject\github\EquipmentManager\EquipmentManager.Controllers\Provider\EquipmentProvider.cs:行号 120
+   在 EquipmentManager.Controllers.Provider.EquipmentProvider.GetEasyUiDataList(Equipment entity, Int32 pageIndex, Int32 pageSize, String order) 位置 E:\MyProject\github\EquipmentManager\EquipmentManager.Controllers\Provider\EquipmentProvider.cs:行号 83
+   在 EquipmentManager.Controllers.Controllers.EquipmentController.GetList(Equipment entity) 位置 E:\MyProject\github\EquipmentManager\EquipmentManager.Controllers\Controllers\EquipmentController.cs:行号 29
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+

@@ -8,6 +8,22 @@ String.prototype.rtrim = function () {
     return this.replace(/(\s*$)/g, "");
 }
 
+Date.prototype.Format = function (fmt) { //author: meizz
+    var o = {
+        "M+": this.getMonth() + 1, //月份
+        "d+": this.getDate(), //日
+        "h+": this.getHours(), //小时
+        "m+": this.getMinutes(), //分
+        "s+": this.getSeconds(), //秒
+        "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+        "S": this.getMilliseconds() //毫秒
+    };
+    if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+    for (var k in o)
+        if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+    return fmt;
+}
+
 //回车禁用
 jQuery("body").bind("keydown", function (e) {
     if (e.which == 13) {
@@ -114,7 +130,9 @@ function GetSecondsName(seconds) {
 function ShowLinkFormater(val, rowdata, index) {
     return '<a href="http://' + val + '" target="_blank">' + val + '</a>';
 }
-
+function ShowDateTimeFormat(val, rowdata, index) {
+    return new Date(val).Format("yyyy-MM-dd hh:mm:ss");
+}
 function ShowImgFormater(val, rowdata, index) {
     return '<img src="' + val + '" style="height:100px;width:100px;"/>';
 }
@@ -157,61 +175,58 @@ function FormatterAuditStatus(val, rowdata, index) {
     }
 }
 
-//扩展easyui表单的验证
-$.extend($.fn.validatebox.defaults.rules, {
-    //验证汉字
-    CHS: {
-        validator: function (value) {
-            return /^[\u0391-\uFFE5]+$/.test(value);
-        },
-        message: '只能输入汉字'
+/*Jquery.DataTables汉化*/
+(function () {
+    //    var oLanguage = {
+    //        "oAria": {
+    //            "sSortAscending": ": 升序排列",
+    //            "sSortDescending": ": 降序排列"
+    //        },
+    //        "oPaginate": {
+    //            "sFirst": "首页",
+    //            "sLast": "末页",
+    //            "sNext": "下页",
+    //            "sPrevious": "上页"
+    //        },
+    //        "sEmptyTable": "没有相关记录",
+    //        "sInfo": "第 _START_ 到 _END_ 条记录，共 _TOTAL_ 条",
+    //        "sInfoEmpty": "第 0 到 0 条记录，共 0 条",
+    //        "sInfoFiltered": "(从 _MAX_ 条记录中检索)",
+    //        "sInfoPostFix": "",
+    //        "sDecimal": "",
+    //        "sThousands": ",",
+    //        "sLengthMenu": "每页显示条数: _MENU_",
+    //        "sLoadingRecords": "正在载入...",
+    //        "sProcessing": "正在载入...",
+    //        "sSearch": "搜索:",
+    //        "sSearchPlaceholder": "",
+    //        "sUrl": "",
+    //        "sZeroRecords": "没有相关记录"
+    //    }
+    $.fn.dataTable.defaults.Language = chineseDataTable;
+    //    //$.extend($.fn.dataTable.defaults.oLanguage,oLanguage)
+})();
+var chineseDataTable = {
+    "sProcessing": "处理中...",
+    "sLengthMenu": "显示_MENU_项结果",
+    "sZeroRecords": "没有匹配结果",
+    "sInfo": "显示第_START_至_END_项结果，共_TOTAL_项",
+    "sInfoEmpty": "显示第0至0项结果，共0项",
+    "sInfoFiltered": "(由_MAX_项结果过滤)",
+    "sInfoPostFix": "",
+    "sSearch": "搜索:",
+    "sUrl": "",
+    "sEmptyTable": "表中数据为空",
+    "sLoadingRecords": "载入中...",
+    "sInfoThousands": ",",
+    "oPaginate": {
+        "sFirst": "首页",
+        "sPrevious": "上页",
+        "sNext": "下页",
+        "sLast": "末页"
     },
-    //移动手机号码验证
-    mobile: {//value值为文本框中的值
-        validator: function (value) {
-            var reg = /^1[3|4|5|8|9]\d{9}$/;
-            return reg.test(value);
-        },
-        message: '输入手机号码格式不准确.'
-    },
-    //国内邮编验证
-    zipcode: {
-        validator: function (value) {
-            var reg = /^[1-9]\d{5}$/;
-            return reg.test(value);
-        },
-        message: '邮编必须是非0开始的6位数字.'
-    },
-    //用户账号验证(只能包括 _ 数字 字母)
-    account: {//param的值为[]中值
-        validator: function (value, param) {
-            if (value.length < param[0] || value.length > param[1]) {
-                $.fn.validatebox.defaults.rules.account.message = '用户名长度必须在' + param[0] + '至' + param[1] + '范围';
-                return false;
-            } else {
-                if (!/^[\w]+$/.test(value)) {
-                    $.fn.validatebox.defaults.rules.account.message = '用户名只能数字、字母、下划线组成.';
-                    return false;
-                } else {
-                    return true;
-                }
-            }
-        }, message: ''
+    "oAria": {
+        "sSortAscending": ":以升序排列此列",
+        "sSortDescending": ":以降序排列此列"
     }
-})
-
-$.fn.datebox.defaults.formatter = function (date) {
-    var y = date.getFullYear();
-    var m = date.getMonth() + 1;
-    var d = date.getDate();
-    return y + '-' + (m < 10 ? ('0' + m) : m) + '-' + (d < 10 ? ('0' + d) : d);
-}
-
-$.fn.datebox.defaults.parser = function (s) {
-    var t = Date.parse(s);
-    if (!isNaN(t)) {
-        return new Date(t);
-    } else {
-        return new Date();
-    }
-}
+};

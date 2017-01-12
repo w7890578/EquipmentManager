@@ -1,0 +1,91 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AssetsTabs</title>
+    <link href="/Content/main.css" rel="stylesheet" />
+    <script src="/Scripts/easyui.js"></script>
+    <script src="/Scripts/common.js"></script>
+</head>
+<body style="margin: 0px; padding: 0px; border: 0 none;">
+
+    <div id="div_tab" class="easyui-tabs">
+        <div id="div_basic" title="基本信息">
+            <iframe scrolling="yes" name="basicInfo" id="basicInfo" frameborder="0" src="/Equipment/Index" style="width:100%;height:100%;"></iframe>
+        </div>
+        <div id="tab_Bom" title="BOM组件">
+            <iframe scrolling="yes" frameborder="0" src="/Equipment/Index" style="width:100%;height:100%;"></iframe>
+        </div>
+        <div id="tab_Guarantee" title="保修">
+            保修
+        </div>
+        <div id="tab_Person" title="人员">
+            人员
+        </div>
+        <div id="tab_File" title="附件">
+            附件
+        </div>
+        <div id="tab_Log" title="日志">
+            日志
+        </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    function GetPageUrlByTabTitle(title) {
+        var pageUrl = "";
+        switch (title) {
+            case "BOM组件":
+                pageUrl = "/Equipment/Index";
+                break;
+            case "保修":
+                pageUrl = "/Equipment/Index";
+                break;
+            case "人员":
+                pageUrl = "/Equipment/Index";
+                break;
+            case "附件":
+                pageUrl = "/Equipment/Index";
+                break;
+            case "日志":
+                pageUrl = "/Equipment/Index";
+                break;
+        }
+        return pageUrl;
+    }
+    $(function () {
+        $('#div_tab').tabs({
+            border: false,
+            onSelect: function (title) {
+                alert(title);
+                if (title == "基本信息") {
+                    return false;
+                }
+                var pageUrl = GetPageUrlByTabTitle(title);
+                var selectRowId = "";
+
+                $("#grid", document.frames('basicInfo').document).datagrid('getSelected');
+                console.log(row);
+                //var row = $('#grid').datagrid('getSelected'); //获取选中行
+                //if (row) {                                       //没有选中行
+                //    selectRowId = row.Id;
+                //}
+                pageUrl = pageUrl + "?Id=" + selectRowId;
+                var current_tab = $('#div_tab').tabs('getSelected');
+                $('#div_tab').tabs('update', {
+                    tab: current_tab,
+                    options: {
+                        content: '<iframe scrolling="auto" frameborder="0"  src="' + pageUrl + '" style="width:100%;height:100%;"></iframe>',
+                        //或者 href : '';
+                        //href: "/Equipment/Index"
+                    }
+                });
+            }
+        });
+    })
+</script>

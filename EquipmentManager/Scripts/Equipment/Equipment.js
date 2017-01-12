@@ -1,7 +1,4 @@
-﻿$(function () {
-})
-
-//保存
+﻿//保存
 function SaveEntity() {
     $('#fmDetail').form('submit', {
         url: "/Equipment/Save",
@@ -72,7 +69,7 @@ function Delete() {
         }
     });
 }
-//添加显示弹框
+//显示添加对话框
 function ShowAddDialog() {
     $('#fmDetail').form('load', {
         Id: '',
@@ -86,7 +83,7 @@ function ShowAddDialog() {
     $("#DivAddToolBar").show();
     $("#tr_Image").show();
 }
-
+//显示编辑态或查看态对话框
 function ShowEditOrViewDialog(view) {
     var row = $('#grid').datagrid('getSelected'); //获取选中行
     if (!row) {                                       //没有选中行
@@ -139,7 +136,7 @@ function ShowEditOrViewDialog(view) {
         }
     });
 }
-
+//初始化表格
 function InitGrid(queryData) {
     $("#grid").datagrid("uncheckAll").datagrid({
         url: '/Equipment/GetList',
@@ -175,47 +172,6 @@ function InitGrid(queryData) {
                 $("#emptymsgdiv").hide();
             }
         },
-        toolbar: [
-     {
-         id: 'btnAdd',
-         text: '添加',
-         iconCls: 'icon-add',
-         handler: function () {
-             ShowAddDialog();//实现添加记录的页面
-         }
-     }, '-',
-         {
-             id: 'btnEdit',
-             text: '修改',
-             iconCls: 'icon-edit',
-             handler: function () {
-                 ShowEditOrViewDialog();//实现修改记录的方法
-             }
-         },
-         '-', {
-             id: 'btnDelete',
-             text: '删除',
-             iconCls: 'icon-remove',
-             handler: function () {
-                 Delete();//实现直接删除数据的方法
-             }
-         },
-         '-', {
-             id: 'btnView',
-             text: '查看',
-             iconCls: 'icon-search',
-             handler: function () {
-                 ShowEditOrViewDialog("view");
-             }
-         }, '-', {
-             id: 'btnReload',
-             text: '刷新',
-             iconCls: 'icon-reload',
-             handler: function () {
-                 //实现刷新栏目中的数据
-                 $("#grid").datagrid("reload");
-             }
-         }],
         onDblClickRow: function (rowIndex, rowData) {
             $('#grid').datagrid('uncheckAll');
             $('#grid').datagrid('checkRow', rowIndex);

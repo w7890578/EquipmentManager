@@ -41,7 +41,8 @@ h2 {
 
     .leftMenuUl li {
         width: 181px;
-        height: 40px;
+        line-height: 12px;
+        height: 24px;
         list-style-type: none;
         padding-left: 15px;
         padding-top: 8px;

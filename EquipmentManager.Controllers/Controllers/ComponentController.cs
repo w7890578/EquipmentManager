@@ -13,6 +13,11 @@ namespace EquipmentManager.Controllers.Controllers
             return View();
         }
 
+        public ViewResult AssetsTabs()
+        {
+            return View();
+        }
+
         [HttpPost]
         public JsonResult Delete(Guid Id)
         {
