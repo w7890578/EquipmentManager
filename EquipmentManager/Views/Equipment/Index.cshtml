@@ -59,6 +59,16 @@
     <form id="fmSearch" method="post">
         <table>
             <tr>
+                <td style="width: 70px; text-align: right;">租户名称：</td>
+                <td style="width: 150px;">
+                    <input class="easyui-combobox" name="language" style="width:100%;" data-options="url:'/Tenant/GetList',
+                           method:'get',
+                           valueField:'Id',
+                           textField:'Name',
+                           panelHeight:'auto'
+                           ">
+                </td>
+
                 <td style="width: 70px; text-align: right;">设备名称：</td>
                 <td style="width: 150px;">
                     <input class="easyui-textbox" name="Name" placeholder="支持模糊查询" />

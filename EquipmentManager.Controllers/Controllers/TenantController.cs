@@ -28,6 +28,13 @@ namespace EquipmentManager.Controllers.Controllers
             return Json(list, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpGet]
+        public JsonResult GetList()
+        {
+            var list = TenantProvider.Instance.GetList(null);
+            return Json(list, JsonRequestBehavior.AllowGet);
+        }
+
         public ViewResult Index()
         {
             return View();
