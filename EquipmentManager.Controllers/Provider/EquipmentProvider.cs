@@ -7,6 +7,7 @@ using EquipmentManager.Controllers.Constant;
 using EquipmentManager.Controllers.Dao;
 using EquipmentManager.Controllers.Models;
 using JingBaiHui.Common.Models;
+using EquipmentManager.Controllers.UIModels;
 
 namespace EquipmentManager.Controllers.Provider
 {
@@ -87,6 +88,34 @@ namespace EquipmentManager.Controllers.Provider
             };
         }
 
+        public List<EasyUI_TreeGrid> GetEquipmentTree(Guid tenantId)
+        {
+            Guid parentId = Guid.Empty;
+            List<Guid> equipmentIds = new List<Guid>();
+
+            //取该租户所有位置，
+            var organs = OrganizationProvider.Instance.GetTreeAll(tenantId, parentId);
+            var organizationIds = organs.Select(t => t.Id).ToList();
+            //取所有位置下的 位置与设备关系
+            var re_equipments = Re_Organization_EquipmentProvider.Instance.GetList(tenantId, organizationIds);
+            //提取所有相关设备Id
+            foreach (var orgId in organizationIds)
+            {
+                equipmentIds.AddRange
+                    (
+                        GetEquipmentIdsByOrganizationId(tenantId, orgId, re_equipments)
+                    );
+            }
+            //取出所有相关设备Id信息
+            var equipments = EquipmentDao.Instance.GetList(tenantId, equipmentIds);
+
+            return OrganizationProvider.Instance.GetTree(tenantId, parentId,
+                delegate (EasyUI_TreeGrid treeRow, Organization org)
+                {
+                    SetEquitpment(treeRow, org, re_equipments, equipments);
+                });
+        }
+
         /// <summary>
         /// 获取列表
         /// </summary>
@@ -128,6 +157,41 @@ namespace EquipmentManager.Controllers.Provider
         public void Update(Equipment entity)
         {
             EquipmentDao.Instance.Update(entity);
+        }
+
+        private List<Guid> GetEquipmentIdsByOrganizationId(Guid tenantId, Guid organizationId, List<Re_Organization_Equipment> res)
+        {
+            return res.Where(t => t.TenantId == tenantId && t.OrganizationId == organizationId)
+                  .Select(t => t.EquipmentId).ToList();
+        }
+
+        private void SetEquitpment(
+            EasyUI_TreeGrid treeRow,
+            Organization org,
+            List<Re_Organization_Equipment> reList,
+            List<Equipment> equipmentList
+            )
+        {
+            var res = reList.Where(t => t.OrganizationId.Equals(org.Id)).ToList();
+            if (res.Count <= 0)
+            {
+                return;
+            }
+            treeRow.Children = treeRow.Children ?? new List<UIModels.EasyUI_TreeGrid>();
+            foreach (var re in res)
+            {
+                var equitpmentInfo = equipmentList.FirstOrDefault(t => t.Id.Equals(re.EquipmentId));
+                if (equitpmentInfo != null)
+                {
+                    var treeChildrenInfo = new EasyUI_TreeGrid()
+                    {
+                        Id = equitpmentInfo.Id,
+                        Name = equitpmentInfo.Name,
+                        Type = 2
+                    };
+                    treeRow.Children.Add(treeChildrenInfo);
+                }
+            }
         }
     }
 }

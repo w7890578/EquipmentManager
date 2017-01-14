@@ -69,6 +69,8 @@
     <Compile Include="Dao\FileDao.cs" />
     <Compile Include="Dao\GuaranteeDao.cs" />
     <Compile Include="Dao\LogDao.cs" />
+    <Compile Include="Dao\OrganizationDao.cs" />
+    <Compile Include="Dao\Re_Organization_EquipmentDao.cs" />
     <Compile Include="Dao\RoleDao.cs" />
     <Compile Include="Dao\TenantDao.cs" />
     <Compile Include="Dao\UserDao.cs" />
@@ -78,6 +80,8 @@
     <Compile Include="Models\File.cs" />
     <Compile Include="Models\Guarantee.cs" />
     <Compile Include="Models\Log.cs" />
+    <Compile Include="Models\Organization.cs" />
+    <Compile Include="Models\Re_Organization_Equipment.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\Tenant.cs" />
     <Compile Include="Models\User.cs" />
@@ -88,9 +92,12 @@
     <Compile Include="Provider\FileProvider.cs" />
     <Compile Include="Provider\GuaranteeProvider.cs" />
     <Compile Include="Provider\LogProvider.cs" />
+    <Compile Include="Provider\OrganizationProvider.cs" />
+    <Compile Include="Provider\Re_Organization_EquipmentProvider.cs" />
     <Compile Include="Provider\RoleProvider.cs" />
     <Compile Include="Provider\TenantProvider.cs" />
     <Compile Include="Provider\UserProvider.cs" />
+    <Compile Include="UIModels\EasyUI_TreeGrid.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

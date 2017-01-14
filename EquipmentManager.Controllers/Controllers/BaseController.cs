@@ -63,7 +63,7 @@ namespace EquipmentManager.Controllers.Controllers
         {
             get
             {
-                return Guid.Empty;
+                return new Guid("4EAF0B83-52D1-4345-92A0-A541600D288A");
             }
         }
 
@@ -74,7 +74,7 @@ namespace EquipmentManager.Controllers.Controllers
         {
             get
             {
-                return Guid.Empty;
+                return new Guid("A72CFFDE-0FBD-4342-A8A4-BFCF0FBEB779");
             }
         }
 

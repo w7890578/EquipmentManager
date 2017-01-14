@@ -1,0 +1,372 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JingBaiHui.Common</name>
+    </assembly>
+    <members>
+        <member name="M:JingBaiHui.Common.Helper.DataHelper.Add(JingBaiHui.Common.DataBase,System.String,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            数据添加
+            </summary>
+            <param name="db"></param>
+            <param name="tableName"></param>
+            <param name="fields"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JingBaiHui.Common.Helper.DataHelper.Delete(JingBaiHui.Common.DataBase,System.String,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            数据删除
+            </summary>
+            <param name="db"></param>
+            <param name="tableName"></param>
+            <param name="filters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JingBaiHui.Common.Helper.DataHelper.GetEntity``1(JingBaiHui.Common.DataBase,System.String,System.Collections.Generic.Dictionary{System.String,System.Object},JingBaiHui.Common.DataBase.EntityConverter{``0})">
+            <summary>
+            获取单个实体
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="db"></param>
+            <param name="sql"></param>
+            <param name="parameters"></param>
+            <param name="converter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JingBaiHui.Common.Helper.DataHelper.GetList``1(JingBaiHui.Common.DataBase,System.String,System.Collections.Generic.Dictionary{System.String,System.Object},JingBaiHui.Common.DataBase.EntityConverter{``0})">
+            <summary>
+            获取集合
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="db"></param>
+            <param name="sql"></param>
+            <param name="parameters"></param>
+            <param name="converter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JingBaiHui.Common.Helper.DataHelper.GetList``1(JingBaiHui.Common.DataBase,System.String,System.Collections.Generic.Dictionary{System.String,System.Object},JingBaiHui.Common.DataBase.EntityConverter{``0},System.Int32,System.Int32,System.String)">
+            <summary>
+            分页获取集合
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="db"></param>
+            <param name="sql"></param>
+            <param name="parameters"></param>
+            <param name="converter"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <param name="order"></param>
+            <returns></returns>
+            <remarks>内部用RowNumber() 分页</remarks>
+        </member>
+        <member name="M:JingBaiHui.Common.Helper.DataHelper.GetListProcedure``1(JingBaiHui.Common.DataBase,System.String,System.Collections.Generic.List{JingBaiHui.Common.Models.DbParameterInfo},JingBaiHui.Common.DataBase.EntityConverter{``0})">
+            <summary>
+            通过存储过程获取集合
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="db"></param>
+            <param name="procedureName"></param>
+            <param name="parameters"></param>
+            <param name="converter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JingBaiHui.Common.Helper.DataHelper.Update(JingBaiHui.Common.DataBase,System.String,System.Collections.Generic.Dictionary{System.String,System.Object},System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            更新数据
+            </summary>
+            <param name="db"></param>
+            <param name="tableName"></param>
+            <param name="fields"></param>
+            <param name="filters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JingBaiHui.Common.DataBase.GetList``1(JingBaiHui.Common.DataBase.EntityConverter{``0},System.String,System.Collections.Generic.Dictionary{System.String,System.Object},System.Int32,System.Int32,System.String)">
+            <summary>
+            分页获取
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="converter"></param>
+            <param name="cmdText">SQL</param>
+            <param name="parameters">参数</param>
+            <param name="pageIndex">页码</param>
+            <param name="pageSize">一页显示条数</param>
+            <param name="order">排序 例如：CreateTime desc</param>
+            <returns></returns>
+        </member>
+        <member name="M:JingBaiHui.Common.DataBase.ExecuteNoneQuery(System.Data.Common.DbCommand)">
+            <summary>
+            执行非查询操作
+            </summary>
+            <param name="cmd">命令对象</param>
+            <returns>受影响的行数</returns>
+        </member>
+        <member name="M:JingBaiHui.Common.DataBase.ExecuteNonQueryWithTransaction(System.Data.Common.DbCommand)">
+            <summary>
+            执行非查询操作，执行务事
+            </summary>
+            <param name="cmd">命令对象</param>
+            <returns>受影响的行数</returns>
+        </member>
+        <member name="M:JingBaiHui.Common.DataBase.GetList``1(JingBaiHui.Common.DataBase.EntityConverter{``0},System.Data.Common.DbCommand)">
+            <summary>
+            执行返回实体列表
+            </summary>
+            <typeparam name="T">实体类型</typeparam>
+            <param name="converter"></param>
+            <param name="cmd">命令对象</param>
+            <returns>实体列表</returns>
+        </member>
+        <member name="M:JingBaiHui.Common.DataBase.GetList``1(JingBaiHui.Common.DataBase.EntityConverter{``0},System.String,System.Collections.Generic.Dictionary{System.String,System.Object},System.Data.CommandType)">
+            <summary>
+            执行返回实体列表
+            </summary>
+            <typeparam name="T">实体类型</typeparam>
+            <param name="converter"></param>
+            <param name="cmdText">命令文本</param>
+            <returns>实体列表</returns>
+        </member>
+        <member name="M:JingBaiHui.Common.EmailHelper.SendMail(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary> 
+            发送邮件程序 
+            </summary> 
+            <param name="from">发送人邮件地址</param> 
+            <param name="fromname">发送人显示名称</param> 
+            <param name="to">发送给谁（邮件地址）</param> 
+            <param name="subject">标题</param> 
+            <param name="body">内容</param> 
+            <param name="username">邮件登录名</param> 
+            <param name="password">邮件密码</param> 
+            <param name="server">邮件服务器</param> 
+            <param name="fujian">附件</param> 
+            <returns>send ok</returns> 
+            调用方法 SendMail("abc@126.com", "某某人", "cba@126.com", "你好", "我测试下邮件", "邮箱登录名", "邮箱密码", "smtp.126.com", ""); 
+        </member>
+        <member name="M:JingBaiHui.Common.EmailHelper.SendMail(System.String,System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            邮件发送
+            </summary>
+            <param name="FromAddress">发送地址</param>
+            <param name="FromDisplayName">发送人昵称</param>
+            <param name="ToAddress">接收地址</param>
+            <param name="title">标题</param>
+            <param name="content">内容</param>
+            <param name="isHtml">是否以Html格式发送</param>
+            <returns></returns>
+        </member>
+        <member name="M:JingBaiHui.Common.EmailHelper.SendMailFromUrl(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            邮件发送（从url中获取内容）
+            </summary>
+            <param name="FromAddress">发送地址</param>
+            <param name="FromDisplayName">发送人昵称</param>
+            <param name="ToAddress">接收地址</param>
+            <param name="title">标题</param>
+            <param name="contentUrl">获取内容的url</param>
+            <returns></returns>
+        </member>
+        <member name="T:JingBaiHui.Common.IDataReaderExtensions">
+            <summary>
+            Contains extension methods for the IDataReader interface.
+            </summary>
+            <remark>Author : PetterLiu 2009-04-17 22:34  http://wintersun.cnblogs.com </remark>
+        </member>
+        <member name="M:JingBaiHui.Common.IDataReaderExtensions.GetValue``1(System.Data.IDataReader,System.String)">
+            <summary>
+            Gets the IDataReader value.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="reader">The reader.</param>
+            <param name="fieldName">Name of the field.</param>
+            <example><code>
+            <![CDATA[
+              IDataReader reader = command.ExecuteReader();
+             if (reader.Read())
+             {
+               DateTime date = reader.GetValue<DateTime>("CreationDate");
+               Int32? orderId = reader.GetValue<Int32?>("NullableID");
+             }
+            ]]>
+            </code></example>
+            <returns>The column value within the reader typed as T</returns>
+        </member>
+        <member name="M:JingBaiHui.Common.IDataReaderExtensions.GetValueOrDefault``1(System.Data.IDataReader,System.String)">
+            <summary>
+            Gets the value or default.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="reader">The reader.</param>
+            <param name="columnName">Name of the column.</param>
+            <returns>The column value within the reader typed as T.</returns>
+            <remark>PetterLiu 2009-04-17 22:34  http://wintersun.cnblogs.com </remark>
+            <example><code>
+            <![CDATA[
+            int? myInt = reader.GetValueOrDefault<int?>("myColumnName");
+            DateTime myDate = reader.GetValueOrDefault<DateTime>("myColumnName");
+            ]]>
+            </code></example>
+        </member>
+        <member name="M:JingBaiHui.Common.IDataReaderExtensions.GetValueOrDefault``1(System.Data.IDataReader,System.String,``0)">
+            <summary>
+            Gets the value or default.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="reader">The reader.</param>
+            <param name="columnName">Name of the column.</param>
+            <param name="defaultValue">The default value.</param>
+            <returns>The column value within the reader typed as T.</returns>
+            <remark>PetterLiu 2009-04-17 22:34  http://wintersun.cnblogs.com </remark>
+            <example><code>
+            <![CDATA[
+             //Default to true if myColumnName is null
+            bool myBool = reader.GetValueOrDefault<bool>("myColumnName", true);
+            ]]>
+            </code></example>
+        </member>
+        <member name="M:JingBaiHui.Common.IDataReaderExtensions.GetValueOrDefault``1(System.Data.IDataReader,System.Int32)">
+            <summary>
+            This method will return the value of the specified columnIndex, cast to
+            the type specified in T.  However, if the value found in the reader is
+            DBNull, this method will return the default value of the type T.
+            </summary>
+            <typeparam name="T">The type to which the value found in the reader should be cast.</typeparam>
+            <param name="reader">The reader in which columnIndex exists.</param>
+            <param name="columnName">The columnIndex to retrieve.</param>
+            <returns>The column value within the reader typed as T.</returns>
+        </member>
+        <member name="M:JingBaiHui.Common.IDataReaderExtensions.GetValue``1(System.Data.IDataReader,System.String,System.Func{System.Int32,``0})">
+            <summary>
+            Gets the value.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="reader">The reader.</param>
+            <param name="field">The field.</param>
+            <param name="code">The code.</param>
+            <returns>The column value within the reader typed as T.</returns>
+            <example><code>address.ID = dr.GetValue("ID", i => dr.GetInt32(i));</code></example>
+            <remark>PetterLiu 2009-04-17 22:35  http://wintersun.cnblogs.com </remark>
+        </member>
+        <member name="M:JingBaiHui.Common.IDataReaderExtensions.GetValueOrNull``1(System.Data.IDataReader,System.String,System.Func{System.Int32,``0})">
+            <summary>
+            Gets the value or null.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="reader">The reader.</param>
+            <param name="field">The field.</param>
+            <param name="code">The code.</param>
+            <returns>The column value within the reader typed as T.</returns>
+            <remark> PetterLiu 2009-04-17 22:38  http://wintersun.cnblogs.com </remark>
+        </member>
+        <member name="M:JingBaiHui.Common.IDataReaderExtensions.GetNullableString(System.Data.IDataRecord,System.Int32)">
+            <summary>
+            Returns a string if one is present, or null if not
+            </summary>
+            <param name="reader">The IDbReader to read from</param>
+            <param name="index">The index of the column to read from</param>
+            <returns>A string, or null if the column's value is NULL</returns>
+        </member>
+        <member name="M:JingBaiHui.Common.IDataReaderExtensions.GetNullableBool(System.Data.IDataRecord,System.Int32)">
+            <summary>
+            Returns a bool if one is present, or null if not
+            </summary>
+            <param name="reader">The IDbReader to read from</param>
+            <param name="index">The index of the column to read from</param>
+            <returns>A bool, or null if the column's value is NULL</returns>
+        </member>
+        <member name="M:JingBaiHui.Common.IDataReaderExtensions.GetNullableDateTime(System.Data.IDataRecord,System.Int32)">
+            <summary>
+            Returns a DateTime if one is present, or null if not
+            </summary>
+            <param name="reader">The IDbReader to read from</param>
+            <param name="index">The index of the column to read from</param>
+            <returns>A DateTime, or null if the column's value is NULL</returns>
+        </member>
+        <member name="M:JingBaiHui.Common.IDataReaderExtensions.GetNullableByte(System.Data.IDataRecord,System.Int32)">
+            <summary>
+            Returns a byte if one is present, or null if not
+            </summary>
+            <param name="reader">The IDbReader to read from</param>
+            <param name="index">The index of the column to read from</param>
+            <returns>A byte, or null if the column's value is NULL</returns>
+        </member>
+        <member name="M:JingBaiHui.Common.IDataReaderExtensions.GetNullableInt16(System.Data.IDataRecord,System.Int32)">
+            <summary>
+            Returns a short if one is present, or null if not
+            </summary>
+            <param name="reader">The IDbReader to read from</param>
+            <param name="index">The index of the column to read from</param>
+            <returns>A short, or null if the column's value is NULL</returns>
+        </member>
+        <member name="M:JingBaiHui.Common.IDataReaderExtensions.GetNullableInt32(System.Data.IDataRecord,System.Int32)">
+            <summary>
+            Returns an int if one is present, or null if not
+            </summary>
+            <param name="reader">The IDbReader to read from</param>
+            <param name="index">The index of the column to read from</param>
+            <returns>An int, or null if the column's value is NULL</returns>
+        </member>
+        <member name="M:JingBaiHui.Common.IDataReaderExtensions.GetNullableFloat(System.Data.IDataRecord,System.Int32)">
+            <summary>
+            Returns a float if one is present, or null if not
+            </summary>
+            <param name="reader">The IDbReader to read from</param>
+            <param name="index">The index of the column to read from</param>
+            <returns>A float, or null if the column's value is NULL</returns>
+        </member>
+        <member name="M:JingBaiHui.Common.IDataReaderExtensions.GetNullableDouble(System.Data.IDataRecord,System.Int32)">
+            <summary>
+            Returns a double if one is present, or null if not
+            </summary>
+            <param name="reader">The IDbReader to read from</param>
+            <param name="index">The index of the column to read from</param>
+            <returns>A double, or null if the column's value is NULL</returns>
+        </member>
+        <member name="M:JingBaiHui.Common.HttpHelper.GetCurrentTwoLevelDomainName">
+            <summary>
+            获得二级域名名称
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JingBaiHui.Common.PingHelper.IsSmooth(System.String)">
+            <summary>
+            检测域名访问是否畅通
+            </summary>
+            <param name="domainName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:JingBaiHui.Common.TxtHelper">
+            <summary>
+            txt文件相关操作
+            </summary>
+        </member>
+        <member name="M:JingBaiHui.Common.TxtHelper.GetEncoding(System.String)">
+            <summary>
+            取得一个文本文件的编码方式。如果无法在文件头部找到有效的前导符，Encoding.Default将被返回。
+            </summary>
+            <param name="fileName">文件名。</param>
+            <returns></returns>
+        </member>
+        <member name="M:JingBaiHui.Common.TxtHelper.GetEncoding(System.IO.FileStream)">
+            <summary>
+            取得一个文本文件流的编码方式。
+            </summary>
+            <param name="stream">文本文件流。</param>
+            <returns></returns>
+        </member>
+        <member name="M:JingBaiHui.Common.TxtHelper.GetEncoding(System.String,System.Text.Encoding)">
+            <summary>
+            取得一个文本文件的编码方式。
+            </summary>
+            <param name="fileName">文件名。</param>
+            <param name="defaultEncoding">默认编码方式。当该方法无法从文件的头部取得有效的前导符时，将返回该编码方式。</param>
+            <returns></returns>
+        </member>
+        <member name="M:JingBaiHui.Common.TxtHelper.GetEncoding(System.IO.FileStream,System.Text.Encoding)">
+            <summary>
+            取得一个文本文件流的编码方式。
+            </summary>
+            <param name="stream">文本文件流。</param>
+            <param name="defaultEncoding">默认编码方式。当该方法无法从文件的头部取得有效的前导符时，将返回该编码方式。</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
