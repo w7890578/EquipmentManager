@@ -25,7 +25,7 @@ namespace EquipmentManager.Controllers.Controllers
         [HttpPost]
         public JsonResult GetList(Equipment entity)
         {
-            entity.TeantId = this.TeantId;
+            entity.TenantId = this.TenantId;
             var list = EquipmentProvider.Instance.GetEasyUiDataList(entity, this.PageIndex, this.PageSize, this.OrderBy);
             return Json(list, JsonRequestBehavior.AllowGet);
         }
@@ -38,7 +38,7 @@ namespace EquipmentManager.Controllers.Controllers
         [HttpPost]
         public JsonResult Save(Equipment entity)
         {
-            entity.TeantId = this.TeantId;
+            entity.TenantId = this.TenantId;
             if (entity.Id == Guid.Empty)
             {
                 entity.Id = Guid.NewGuid();

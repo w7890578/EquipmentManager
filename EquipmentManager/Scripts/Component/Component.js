@@ -98,7 +98,7 @@ function ShowEditOrViewDialog(view) {
         success: function (res) {
             $('#fmDetail').form('load', {
             	Id:res.Id,//主键
-		TeantId:res.TeantId,//租户Id
+		TenantId:res.TenantId,//租户Id
 		ParentId:res.ParentId,//父Id
 		EquipmentId:res.EquipmentId,//设备Id
 		Name:res.Name,//资产名称

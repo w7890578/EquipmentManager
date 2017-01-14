@@ -59,7 +59,7 @@ namespace EquipmentManager.Controllers.Controllers
         /// <summary>
         /// 从登录用户的Cookie中取出
         /// </summary>
-        protected virtual Guid TeantId
+        protected virtual Guid TenantId
         {
             get
             {

@@ -137,10 +137,10 @@ function ShowImgFormater(val, rowdata, index) {
     return '<img src="' + val + '" style="height:100px;width:100px;"/>';
 }
 
-//通过TeantId绑定方案
-function LoadProgramByTeantId(teantId, programContorlId) {
+//通过TenantId绑定方案
+function LoadProgramByTenantId(TenantId, programContorlId) {
     $("#" + programContorlId).empty();
-    var TenantId = teantId;
+    var TenantId = TenantId;
     if (TenantId != '') {
         var htmlStr = "";
         $.post("/Admin/Program/GetList", { PageSize: 1000, TenantId: TenantId }, function (data) {

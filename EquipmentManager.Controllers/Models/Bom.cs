@@ -53,7 +53,7 @@ namespace EquipmentManager.Controllers.Models
         /// <summary>
         /// 租户Id
         /// </summary>
-        public Guid TeantId { get; set; }
+        public Guid TenantId { get; set; }
 
         /// <summary>
         /// 单机用量

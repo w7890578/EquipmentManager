@@ -41,7 +41,7 @@ namespace EquipmentManager.Controllers.Dao
             var fields = new Dictionary<string, object>()
             {
                 { "Id",entity.Id},
-                { "TeantId",entity.TeantId},
+                { "TenantId",entity.TenantId},
                 { "Name",entity.Name},
                 { "Code",entity.Code},
                 { "Classify",entity.Classify},
@@ -134,7 +134,7 @@ namespace EquipmentManager.Controllers.Dao
         {
             var fields = new Dictionary<string, object>()
             {
-                { "TeantId",entity.TeantId},
+                { "TenantId",entity.TenantId},
                 { "Name",entity.Name},
                 { "Code",entity.Code},
                 { "Classify",entity.Classify},
@@ -148,7 +148,7 @@ namespace EquipmentManager.Controllers.Dao
            };
             var filters = new Dictionary<string, object>() {
                 { "Id",entity.Id},
-                { "TeantId",entity.TeantId}
+                { "TenantId",entity.TenantId}
             };
             DataHelper.Update(db, tableName, fields, filters);
         }
@@ -163,7 +163,7 @@ namespace EquipmentManager.Controllers.Dao
         private void BuildTenant(IDataReader reader, Equipment entity)
         {
             entity.Id = reader.GetValue<Guid>("Id");
-            entity.TeantId = reader.GetValue<Guid>("TeantId");
+            entity.TenantId = reader.GetValue<Guid>("TenantId");
             entity.Name = reader.GetValue<string>("Name");
             entity.Code = reader.GetValue<string>("Code");
             entity.Classify = reader.GetValue<string>("Classify");
@@ -194,10 +194,10 @@ namespace EquipmentManager.Controllers.Dao
                 sql.AppendFormat(" AND [Id]=@Id ");
                 parameters.Add("@Id", entity.Id);
             }
-            if (entity.TeantId != Guid.Empty)
+            if (entity.TenantId != Guid.Empty)
             {
-                sql.AppendFormat(" AND [TeantId]=@TeantId ");
-                parameters.Add("@TeantId", entity.TeantId);
+                sql.AppendFormat(" AND [TenantId]=@TenantId ");
+                parameters.Add("@TenantId", entity.TenantId);
             }
             if (!string.IsNullOrWhiteSpace(entity.Name))
             {

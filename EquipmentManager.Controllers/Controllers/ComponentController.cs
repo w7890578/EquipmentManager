@@ -46,7 +46,7 @@ namespace EquipmentManager.Controllers.Controllers
         [HttpPost]
         public JsonResult Save(Component entity)
         {
-            entity.TeantId = this.TeantId;
+            entity.TenantId = this.TenantId;
             if (entity.Id == Guid.Empty)
             {
                 entity.Id = Guid.NewGuid();
