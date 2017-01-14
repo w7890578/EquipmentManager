@@ -59,6 +59,7 @@
     <Compile Include="Controllers\GuaranteeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LogController.cs" />
+    <Compile Include="Controllers\TenantController.cs" />
     <Compile Include="Dao\BaseDao.cs" />
     <Compile Include="Dao\BomDao.cs" />
     <Compile Include="Dao\ComponentDao.cs" />
@@ -66,12 +67,14 @@
     <Compile Include="Dao\FileDao.cs" />
     <Compile Include="Dao\GuaranteeDao.cs" />
     <Compile Include="Dao\LogDao.cs" />
+    <Compile Include="Dao\TenantDao.cs" />
     <Compile Include="Models\Bom.cs" />
     <Compile Include="Models\Component.cs" />
     <Compile Include="Models\Equipment.cs" />
     <Compile Include="Models\File.cs" />
     <Compile Include="Models\Guarantee.cs" />
     <Compile Include="Models\Log.cs" />
+    <Compile Include="Models\Tenant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Provider\BomProvider.cs" />
     <Compile Include="Provider\ComponentProvider.cs" />
@@ -79,6 +82,7 @@
     <Compile Include="Provider\FileProvider.cs" />
     <Compile Include="Provider\GuaranteeProvider.cs" />
     <Compile Include="Provider\LogProvider.cs" />
+    <Compile Include="Provider\TenantProvider.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

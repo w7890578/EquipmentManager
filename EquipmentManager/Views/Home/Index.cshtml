@@ -15,7 +15,9 @@
     <script src="/Content/easyui/jquery.easyui.min.js"></script>
     <script src="/Scripts/Home/home.js"></script>
 </head>
+<!--整体页面布局-->
 <body class="easyui-layout" id="layout">
+    <!--头部-->
     <div data-options="region:'north',border:false" class="ershou_nav" style="padding-right: 20px;">
         <div class="logo_nav jfl" style="font-size: 21px; font-weight: 500; color: lightcoral;">
             智能工厂设备综合管理系统
@@ -41,6 +43,7 @@
             </select>
         </span>
     </div>
+    <!--左侧菜单栏-->
     <div data-options="region:'west',split:true,collapsible:true,title:'导航菜单'" style="width: 205px; " id="leftmenu">
         <div id="aa" class="easyui-accordion" style="width: 198px; margin: 0px; padding: 0px;" data-options="multiple:false">
             <div title="控制面板" data-options="iconCls:'icon-ok'" style="overflow:auto;">
@@ -112,15 +115,31 @@
                     </li>
                 </ul>
             </div>
+
+            <div title="系统设置">
+                <ul class="leftMenuUl">
+                    <li onclick="MenuClick('/Tenant/Index/', '租户管理')">
+                        <table>
+                            <tr>
+                                <td></td>
+                                <td>租户管理</td>
+                            </tr>
+                        </table>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
     @*<div data-options="region:'east',split:true,collapsed:true,title:'East'" style="width: 100px; padding: 10px;">east region</div>*@
+    <!--底部版权信息-->
     <div data-options="region:'south',border:false" style="height: 20px; text-align: center;">版权所有：天津慧通科技有限责任公司</div>
+    <!--中间iframe页面信息-->
     <div data-options="region:'center',tabWidth:120" id="tb" style="padding: 0px; width: auto;">
         @*<input type="button" id="btnExp" value="导出" />*@
 
         <iframe scrolling="auto" framespacing=0 marginheight=0 marginwidth=0 frameborder="0" id="CenterFrame" src="/Home/HomePage" style="width:100%;height:99%;"></iframe>
     </div>
+
     <div id="tab_rightmenu" class="easyui-menu" style="width: 150px;">
         <!-- 	<div name="tab_menu-tabclose">关闭</div> -->
         <div name="tab_menu-tabcloseall">关闭全部标签</div>

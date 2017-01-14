@@ -14,7 +14,7 @@ namespace EquipmentManager
     {
         protected void Application_Start()
         {
-            BaseDao.db = DataBaseFactory.Create("EquipmentManager");
+            BaseDao.db = DataBaseFactory.Create("Equipment");
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
