@@ -150,3 +150,4 @@ E:\MyProject\github\EquipmentManager\EquipmentManager\bin\zh-Hans\Microsoft.AspN
 E:\MyProject\github\EquipmentManager\EquipmentManager\obj\Debug\EquipmentManager.csprojResolveAssemblyReference.cache
 E:\MyProject\github\EquipmentManager\EquipmentManager\obj\Debug\EquipmentManager.dll
 E:\MyProject\github\EquipmentManager\EquipmentManager\obj\Debug\EquipmentManager.pdb
+E:\MyProject\github\EquipmentManager\EquipmentManager\bin\JingBaiHui.Common.xml

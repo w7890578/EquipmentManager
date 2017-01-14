@@ -131,7 +131,6 @@ namespace EquipmentManager.Controllers.Dao
                 new DbParameterInfo() { Name = "@TenantId", Value = tenantId },
                 new DbParameterInfo() { Name = "@ParentId", Value = parentId }
             };
-
             return DataHelper.GetListProcedure<Organization>
                 (db, "[dbo].[P_GetOrganizationTree]", parameters, BuildTenant);
         }

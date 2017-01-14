@@ -51,3 +51,5 @@ E:\MyProject\github\EquipmentManager\EquipmentManager.Controllers\bin\Debug\zh-H
 E:\MyProject\github\EquipmentManager\EquipmentManager.Controllers\bin\Debug\zh-Hans\System.Web.WebPages.Deployment.resources.dll
 E:\MyProject\github\EquipmentManager\EquipmentManager.Controllers\obj\Debug\EquipmentManager.Controllers.dll
 E:\MyProject\github\EquipmentManager\EquipmentManager.Controllers\obj\Debug\EquipmentManager.Controllers.pdb
+E:\MyProject\github\EquipmentManager\EquipmentManager.Controllers\bin\Debug\JingBaiHui.Common.xml
+E:\MyProject\github\EquipmentManager\EquipmentManager.Controllers\obj\Debug\EquipmentManager.Controllers.csprojResolveAssemblyReference.cache
