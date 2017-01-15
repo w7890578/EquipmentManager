@@ -11,17 +11,17 @@ using EquipmentManager.Controllers.UIModels;
 
 namespace EquipmentManager.Controllers.Provider
 {
-    public class EquipmentProvider
+    public class AssetsProvider
     {
         #region singleton
 
-        private static readonly EquipmentProvider instance = new EquipmentProvider();
+        private static readonly AssetsProvider instance = new AssetsProvider();
 
-        private EquipmentProvider()
+        private AssetsProvider()
         {
         }
 
-        public static EquipmentProvider Instance
+        public static AssetsProvider Instance
         {
             get { return instance; }
         }
@@ -32,9 +32,9 @@ namespace EquipmentManager.Controllers.Provider
         ///  创建
         /// </summary>
         /// <param name="entity"></param>
-        public void Create(Equipment entity)
+        public void Create(Assets entity)
         {
-            EquipmentDao.Instance.Create(entity);
+            AssetsDao.Instance.Create(entity);
         }
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace EquipmentManager.Controllers.Provider
         /// <param name="Id"></param>
         public void Delete(Guid Id)
         {
-            EquipmentDao.Instance.Delete(Id);
+            AssetsDao.Instance.Delete(Id);
         }
 
         /// <summary>
@@ -51,9 +51,9 @@ namespace EquipmentManager.Controllers.Provider
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        public Equipment Get(Guid Id)
+        public Assets Get(Guid Id)
         {
-            return EquipmentDao.Instance.GetById(Id);
+            return AssetsDao.Instance.GetById(Id);
         }
 
         /// <summary>
@@ -61,9 +61,9 @@ namespace EquipmentManager.Controllers.Provider
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public Equipment Get(Equipment searchEntity)
+        public Assets Get(Assets searchEntity)
         {
-            var list = EquipmentDao.Instance.GetList(searchEntity);
+            var list = AssetsDao.Instance.GetList(searchEntity);
             if (list != null && list.Count > 0)
             {
                 return list[0];
@@ -79,9 +79,9 @@ namespace EquipmentManager.Controllers.Provider
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public EasyUiDataGrid<Equipment> GetEasyUiDataList(Equipment entity, int pageIndex, int pageSize, string order)
+        public EasyUiDataGrid<Assets> GetEasyUiDataList(Assets entity, int pageIndex, int pageSize, string order)
         {
-            return new EasyUiDataGrid<Equipment>()
+            return new EasyUiDataGrid<Assets>()
             {
                 Total = GetRecordCount(entity),
                 Rows = GetList(entity, pageIndex, pageSize, order)
@@ -93,9 +93,9 @@ namespace EquipmentManager.Controllers.Provider
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public List<Equipment> GetList(Equipment entity)
+        public List<Assets> GetList(Assets entity)
         {
-            return EquipmentDao.Instance.GetList(entity);
+            return AssetsDao.Instance.GetList(entity);
         }
 
         /// <summary>
@@ -106,9 +106,9 @@ namespace EquipmentManager.Controllers.Provider
         /// <param name="pageSize">一页显示条数</param>
         /// <param name="order">排序</param>
         /// <returns></returns>
-        public List<Equipment> GetList(Equipment entity, int pageIndex, int pageSize, string order = EquipmentConst.Order)
+        public List<Assets> GetList(Assets entity, int pageIndex, int pageSize, string order = EquipmentConst.Order)
         {
-            return EquipmentDao.Instance.GetList(entity, pageIndex, pageSize, order);
+            return AssetsDao.Instance.GetList(entity, pageIndex, pageSize, order);
         }
 
         /// <summary>
@@ -116,7 +116,7 @@ namespace EquipmentManager.Controllers.Provider
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public int GetRecordCount(Equipment searchEntity)
+        public int GetRecordCount(Assets searchEntity)
         {
             var list = GetList(searchEntity);
             return list == null ? 0 : list.Count;
@@ -126,9 +126,9 @@ namespace EquipmentManager.Controllers.Provider
         /// 更新
         /// </summary>
         /// <param name="entity"></param>
-        public void Update(Equipment entity)
+        public void Update(Assets entity)
         {
-            EquipmentDao.Instance.Update(entity);
+            AssetsDao.Instance.Update(entity);
         }
     }
 }

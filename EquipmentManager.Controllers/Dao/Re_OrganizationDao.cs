@@ -2,6 +2,7 @@
 using System.Text;
 using System.Data;
 using System.Collections.Generic;
+using System.Linq;
 using JingBaiHui.Common;
 using JingBaiHui.Common.Helper;
 using EquipmentManager.Controllers.Models;
@@ -9,23 +10,23 @@ using EquipmentManager.Controllers.Constant;
 
 namespace EquipmentManager.Controllers.Dao
 {
-    public class EquipmentDao : BaseDao
+    public class Re_OrganizationDao : BaseDao
     {
-        private static string tableName = "Equipment";
+        private static string tableName = "Re_Organization";
 
         #region singleton
 
-        private static readonly EquipmentDao instance = new EquipmentDao();
+        private static readonly Re_OrganizationDao instance = new Re_OrganizationDao();
 
-        private EquipmentDao()
+        private Re_OrganizationDao()
         {
             if (db == null)
             {
-                db = DataBaseFactory.Create(EquipmentConst.DataBaseName);
+                db = DataBaseFactory.Create("Equipment");
             }
         }
 
-        public static EquipmentDao Instance
+        public static Re_OrganizationDao Instance
         {
             get { return instance; }
         }
@@ -36,22 +37,19 @@ namespace EquipmentManager.Controllers.Dao
         ///  创建
         /// </summary>
         /// <param name="entity"></param>
-        public void Create(Equipment entity)
+        public void Create(Re_Organization entity)
         {
             var fields = new Dictionary<string, object>()
             {
                 { "Id",entity.Id},
                 { "TenantId",entity.TenantId},
-                { "Name",entity.Name},
-                { "Code",entity.Code},
-                { "Classify",entity.Classify},
-                { "Address",entity.Address},
-                { "Description",entity.Description},
-                { "CreateTime",entity.CreateTime},
+                { "OrganizationId",entity.OrganizationId},
+                { "AssetsId",entity.AssetsId},
+                { "EquipmentId",entity.EquipmentId},
                 { "CreateBy",entity.CreateBy},
+                { "CreateTime",entity.CreateTime},
                 { "ModifyBy",entity.ModifyBy},
-                { "ModifyTime",entity.ModifyTime},
-                { "ImageLink",entity.ImageLink}
+                { "ModifyTime",entity.ModifyTime}
             };
             DataHelper.Add(db, tableName, fields);
         }
@@ -73,7 +71,7 @@ namespace EquipmentManager.Controllers.Dao
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        public Equipment GetById(Guid Id)
+        public Re_Organization GetById(Guid Id)
         {
             string sql = $@"
                 SELECT TOP 1 * FROM [dbo].[{tableName}]
@@ -82,30 +80,33 @@ namespace EquipmentManager.Controllers.Dao
             {
                    {"@Id",Id}
             };
-            return DataHelper.GetEntity<Equipment>(db, sql, parameters, delegate (IDataReader reader, Equipment entity)
+            return DataHelper.GetEntity<Re_Organization>(db, sql, parameters, delegate (IDataReader reader, Re_Organization entity)
             {
-                Build(reader, entity);
+                BuildTenant(reader, entity);
             });
         }
 
-        public List<Equipment> GetList(Guid tenantId, List<Guid> ids)
+        public List<Re_Organization> GetList(
+            Guid tenantId,
+            List<Guid> organizationIds)
         {
             StringBuilder sql = new StringBuilder();
-            sql.Append(@"
+            sql.Append($@"
                         select * from
-                                [dbo].[Equipment]
+                                [dbo].[{tableName}]
                         where   TenantId = @TenantId
                           ");
             Dictionary<string, object> parameters = new Dictionary<string, object>();
-            if (ids != null && ids.Count > 0)
+
+            if (organizationIds != null && organizationIds.Any())
             {
-                sql.Append(" and  Id in (");
+                sql.Append(" and  OrganizationId in (");
                 parameters.Add("@TenantId", tenantId);
-                for (int i = 0; i < ids.Count; i++)
+                for (int i = 0; i < organizationIds.Count; i++)
                 {
-                    var parameterName = $"@Id{i}";
-                    parameters.Add(parameterName, ids[i]);
-                    if (i == ids.Count - 1)
+                    var parameterName = $"@organizationId{i}";
+                    parameters.Add(parameterName, organizationIds[i]);
+                    if (i == organizationIds.Count - 1)
                     {
                         sql.Append($"{parameterName}");
                     }
@@ -116,7 +117,7 @@ namespace EquipmentManager.Controllers.Dao
                 }
                 sql.Append(")");
             }
-            return DataHelper.GetList<Equipment>(db, sql.ToString(), parameters, Build);
+            return DataHelper.GetList<Re_Organization>(db, sql.ToString(), parameters, BuildTenant);
         }
 
         /// <summary>
@@ -124,15 +125,15 @@ namespace EquipmentManager.Controllers.Dao
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public List<Equipment> GetList(Equipment entity)
+        public List<Re_Organization> GetList(Re_Organization entity)
         {
             StringBuilder sql = new StringBuilder($" SELECT * FROM [dbo].[{tableName}] ");
             Dictionary<string, object> parameters = new Dictionary<string, object>();
 
             LoadCondition(entity, sql, ref parameters);
-            return DataHelper.GetList<Equipment>(db, sql.ToString(), parameters, delegate (IDataReader reader, Equipment dataModel)
+            return DataHelper.GetList<Re_Organization>(db, sql.ToString(), parameters, delegate (IDataReader reader, Re_Organization dataModel)
             {
-                Build(reader, dataModel);
+                BuildTenant(reader, dataModel);
             });
         }
 
@@ -144,15 +145,15 @@ namespace EquipmentManager.Controllers.Dao
         /// <param name="pageSize">一页显示条数</param>
         /// <param name="order">排序</param>
         /// <returns></returns>
-        public List<Equipment> GetList(Equipment entity, int pageIndex, int pageSize, string order = EquipmentConst.Order)
+        public List<Re_Organization> GetList(Re_Organization entity, int pageIndex, int pageSize, string order = EquipmentConst.Order)
         {
             StringBuilder sql = new StringBuilder($" SELECT * FROM [dbo].[{tableName}] ");
             Dictionary<string, object> parameters = new Dictionary<string, object>();
 
             LoadCondition(entity, sql, ref parameters);
-            return DataHelper.GetList<Equipment>(db, sql.ToString(), parameters, delegate (IDataReader reader, Equipment dataModel)
+            return DataHelper.GetList<Re_Organization>(db, sql.ToString(), parameters, delegate (IDataReader reader, Re_Organization dataModel)
             {
-                Build(reader, dataModel);
+                BuildTenant(reader, dataModel);
             }, pageIndex, pageSize, order);
         }
 
@@ -160,25 +161,22 @@ namespace EquipmentManager.Controllers.Dao
         /// 更新
         /// </summary>
         /// <param name="entity"></param>
-        public void Update(Equipment entity)
+        public void Update(Re_Organization entity)
         {
             var fields = new Dictionary<string, object>()
             {
                 { "TenantId",entity.TenantId},
-                { "Name",entity.Name},
-                { "Code",entity.Code},
-                { "Classify",entity.Classify},
-                { "Address",entity.Address},
-                { "Description",entity.Description},
-                { "CreateTime",entity.CreateTime},
+                { "OrganizationId",entity.OrganizationId},
+                { "AssetsId",entity.AssetsId},
+                { "EquipmentId",entity.EquipmentId},
                 { "CreateBy",entity.CreateBy},
+                { "CreateTime",entity.CreateTime},
                 { "ModifyBy",entity.ModifyBy},
-                { "ModifyTime",entity.ModifyTime},
-                { "ImageLink",entity.ImageLink}
-           };
+                { "ModifyTime",entity.ModifyTime}
+                };
             var filters = new Dictionary<string, object>() {
                 { "Id",entity.Id},
-                { "TenantId",entity.TenantId}
+                { "TeantId",entity.TenantId}
             };
             DataHelper.Update(db, tableName, fields, filters);
         }
@@ -190,20 +188,17 @@ namespace EquipmentManager.Controllers.Dao
         /// </summary>
         /// <param name="reader"></param>
         /// <param name="entity"></param>
-        private void Build(IDataReader reader, Equipment entity)
+        private void BuildTenant(IDataReader reader, Re_Organization entity)
         {
             entity.Id = reader.GetValue<Guid>("Id");
             entity.TenantId = reader.GetValue<Guid>("TenantId");
-            entity.Name = reader.GetValue<string>("Name");
-            entity.Code = reader.GetValue<string>("Code");
-            entity.Classify = reader.GetValue<string>("Classify");
-            entity.Address = reader.GetValue<string>("Address");
-            entity.Description = reader.GetValue<string>("Description");
-            entity.CreateTime = reader.GetValue<DateTime>("CreateTime");
+            entity.OrganizationId = reader.GetValue<Guid>("OrganizationId");
+            entity.AssetsId = reader.GetValue<Guid>("AssetsId");
+            entity.EquipmentId = reader.GetValue<Guid>("EquipmentId");
             entity.CreateBy = reader.GetValue<Guid>("CreateBy");
+            entity.CreateTime = reader.GetValue<DateTime>("CreateTime");
             entity.ModifyBy = reader.GetValue<Guid>("ModifyBy");
             entity.ModifyTime = reader.GetValue<DateTime>("ModifyTime");
-            entity.ImageLink = reader.GetValue<string>("ImageLink");
         }
 
         /// <summary>
@@ -212,7 +207,7 @@ namespace EquipmentManager.Controllers.Dao
         /// <param name="entity">查询实体</param>
         /// <param name="sql">SQL命令</param>
         /// <param name="parameters">参数</param>
-        private void LoadCondition(Equipment entity, StringBuilder sql, ref Dictionary<string, object> parameters)
+        private void LoadCondition(Re_Organization entity, StringBuilder sql, ref Dictionary<string, object> parameters)
         {
             if (entity == null)
                 return;
@@ -229,51 +224,31 @@ namespace EquipmentManager.Controllers.Dao
                 sql.AppendFormat(" AND [TenantId]=@TenantId ");
                 parameters.Add("@TenantId", entity.TenantId);
             }
-            if (!string.IsNullOrWhiteSpace(entity.Name))
+            if (entity.OrganizationId != Guid.Empty)
             {
-                sql.AppendFormat(" AND [Name] LIKE '%'+@Name+'%' ");
-                parameters.Add("@Name", entity.Name);
+                sql.AppendFormat(" AND [OrganizationId]=@OrganizationId ");
+                parameters.Add("@OrganizationId", entity.OrganizationId);
             }
-
-            if (!string.IsNullOrWhiteSpace(entity.Code))
+            if (entity.AssetsId != Guid.Empty)
             {
-                sql.AppendFormat(" AND [Code] LIKE '%'+@Code+'%' ");
-                parameters.Add("@Code", entity.Code);
+                sql.AppendFormat(" AND [AssetsId]=@AssetsId ");
+                parameters.Add("@AssetsId", entity.AssetsId);
             }
-
-            if (!string.IsNullOrWhiteSpace(entity.Classify))
+            if (entity.EquipmentId != Guid.Empty)
             {
-                sql.AppendFormat(" AND [Classify] LIKE '%'+@Classify+'%' ");
-                parameters.Add("@Classify", entity.Classify);
+                sql.AppendFormat(" AND [EquipmentId]=@EquipmentId ");
+                parameters.Add("@EquipmentId", entity.EquipmentId);
             }
-
-            if (!string.IsNullOrWhiteSpace(entity.Address))
-            {
-                sql.AppendFormat(" AND [Address] LIKE '%'+@Address+'%' ");
-                parameters.Add("@Address", entity.Address);
-            }
-
-            if (!string.IsNullOrWhiteSpace(entity.Description))
-            {
-                sql.AppendFormat(" AND [Description] LIKE '%'+@Description+'%' ");
-                parameters.Add("@Description", entity.Description);
-            }
-
             if (entity.CreateBy != Guid.Empty)
             {
                 sql.AppendFormat(" AND [CreateBy]=@CreateBy ");
                 parameters.Add("@CreateBy", entity.CreateBy);
             }
+
             if (entity.ModifyBy != Guid.Empty)
             {
                 sql.AppendFormat(" AND [ModifyBy]=@ModifyBy ");
                 parameters.Add("@ModifyBy", entity.ModifyBy);
-            }
-
-            if (!string.IsNullOrWhiteSpace(entity.ImageLink))
-            {
-                sql.AppendFormat(" AND [ImageLink] LIKE '%'+@ImageLink+'%' ");
-                parameters.Add("@ImageLink", entity.ImageLink);
             }
         }
 

@@ -63,7 +63,7 @@ namespace EquipmentManager.Controllers.Controllers
         {
             get
             {
-                return new Guid("4EAF0B83-52D1-4345-92A0-A541600D288A");
+                return Guid.Empty;
             }
         }
 

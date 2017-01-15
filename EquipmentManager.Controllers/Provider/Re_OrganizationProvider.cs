@@ -10,17 +10,17 @@ using JingBaiHui.Common.Models;
 
 namespace EquipmentManager.Controllers.Provider
 {
-    public class Re_Organization_EquipmentProvider
+    public class Re_OrganizationProvider
     {
         #region singleton
 
-        private static readonly Re_Organization_EquipmentProvider instance = new Re_Organization_EquipmentProvider();
+        private static readonly Re_OrganizationProvider instance = new Re_OrganizationProvider();
 
-        private Re_Organization_EquipmentProvider()
+        private Re_OrganizationProvider()
         {
         }
 
-        public static Re_Organization_EquipmentProvider Instance
+        public static Re_OrganizationProvider Instance
         {
             get { return instance; }
         }
@@ -31,9 +31,9 @@ namespace EquipmentManager.Controllers.Provider
         ///  创建
         /// </summary>
         /// <param name="entity"></param>
-        public void Create(Re_Organization_Equipment entity)
+        public void Create(Re_Organization entity)
         {
-            Re_Organization_EquipmentDao.Instance.Create(entity);
+            Re_OrganizationDao.Instance.Create(entity);
         }
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace EquipmentManager.Controllers.Provider
         /// <param name="Id"></param>
         public void Delete(Guid Id)
         {
-            Re_Organization_EquipmentDao.Instance.Delete(Id);
+            Re_OrganizationDao.Instance.Delete(Id);
         }
 
         /// <summary>
@@ -50,9 +50,9 @@ namespace EquipmentManager.Controllers.Provider
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        public Re_Organization_Equipment Get(Guid Id)
+        public Re_Organization Get(Guid Id)
         {
-            return Re_Organization_EquipmentDao.Instance.GetById(Id);
+            return Re_OrganizationDao.Instance.GetById(Id);
         }
 
         /// <summary>
@@ -60,9 +60,9 @@ namespace EquipmentManager.Controllers.Provider
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public Re_Organization_Equipment Get(Re_Organization_Equipment searchEntity)
+        public Re_Organization Get(Re_Organization searchEntity)
         {
-            var list = Re_Organization_EquipmentDao.Instance.GetList(searchEntity);
+            var list = Re_OrganizationDao.Instance.GetList(searchEntity);
             if (list != null && list.Count > 0)
             {
                 return list[0];
@@ -78,18 +78,18 @@ namespace EquipmentManager.Controllers.Provider
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public EasyUiDataGrid<Re_Organization_Equipment> GetEasyUiDataList(Re_Organization_Equipment entity, int pageIndex, int pageSize, string order)
+        public EasyUiDataGrid<Re_Organization> GetEasyUiDataList(Re_Organization entity, int pageIndex, int pageSize, string order)
         {
-            return new EasyUiDataGrid<Re_Organization_Equipment>()
+            return new EasyUiDataGrid<Re_Organization>()
             {
                 Total = GetRecordCount(entity),
                 Rows = GetList(entity, pageIndex, pageSize, order)
             };
         }
 
-        public List<Re_Organization_Equipment> GetList(Guid tenantId, List<Guid> organizationIds)
+        public List<Re_Organization> GetList(Guid tenantId, List<Guid> organizationIds)
         {
-            return Re_Organization_EquipmentDao.Instance.GetList(tenantId, organizationIds);
+            return Re_OrganizationDao.Instance.GetList(tenantId, organizationIds);
         }
 
         /// <summary>
@@ -97,9 +97,9 @@ namespace EquipmentManager.Controllers.Provider
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public List<Re_Organization_Equipment> GetList(Re_Organization_Equipment entity)
+        public List<Re_Organization> GetList(Re_Organization entity)
         {
-            return Re_Organization_EquipmentDao.Instance.GetList(entity);
+            return Re_OrganizationDao.Instance.GetList(entity);
         }
 
         /// <summary>
@@ -110,9 +110,9 @@ namespace EquipmentManager.Controllers.Provider
         /// <param name="pageSize">一页显示条数</param>
         /// <param name="order">排序</param>
         /// <returns></returns>
-        public List<Re_Organization_Equipment> GetList(Re_Organization_Equipment entity, int pageIndex, int pageSize, string order = EquipmentConst.Order)
+        public List<Re_Organization> GetList(Re_Organization entity, int pageIndex, int pageSize, string order = EquipmentConst.Order)
         {
-            return Re_Organization_EquipmentDao.Instance.GetList(entity, pageIndex, pageSize, order);
+            return Re_OrganizationDao.Instance.GetList(entity, pageIndex, pageSize, order);
         }
 
         /// <summary>
@@ -120,7 +120,7 @@ namespace EquipmentManager.Controllers.Provider
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public int GetRecordCount(Re_Organization_Equipment searchEntity)
+        public int GetRecordCount(Re_Organization searchEntity)
         {
             var list = GetList(searchEntity);
             return list == null ? 0 : list.Count;
@@ -130,9 +130,9 @@ namespace EquipmentManager.Controllers.Provider
         /// 更新
         /// </summary>
         /// <param name="entity"></param>
-        public void Update(Re_Organization_Equipment entity)
+        public void Update(Re_Organization entity)
         {
-            Re_Organization_EquipmentDao.Instance.Update(entity);
+            Re_OrganizationDao.Instance.Update(entity);
         }
     }
 }

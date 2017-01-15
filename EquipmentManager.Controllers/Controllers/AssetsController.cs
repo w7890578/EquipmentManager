@@ -3,16 +3,15 @@ using System.Web.Mvc;
 using JingBaiHui.Common.Models;
 using EquipmentManager.Controllers.Models;
 using EquipmentManager.Controllers.Provider;
-using System.Web;
 
 namespace EquipmentManager.Controllers.Controllers
 {
-    public class EquipmentController : BaseController
+    public class AssetsController : BaseController
     {
         [HttpPost]
         public JsonResult Delete(Guid Id)
         {
-            EquipmentProvider.Instance.Delete(Id);
+            AssetsProvider.Instance.Delete(Id);
             return Json(new ResponseModel() { Status = true });
         }
 
@@ -23,15 +22,15 @@ namespace EquipmentManager.Controllers.Controllers
 
         public JsonResult Get(Guid Id)
         {
-            var model = EquipmentProvider.Instance.Get(Id);
+            var model = AssetsProvider.Instance.Get(Id);
             return Json(model, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
-        public JsonResult GetList(Equipment entity)
+        public JsonResult GetList(Assets entity)
         {
             entity.TenantId = this.TenantId;
-            var list = EquipmentProvider.Instance.GetEasyUiDataList(entity, this.PageIndex, this.PageSize, this.OrderBy);
+            var list = AssetsProvider.Instance.GetEasyUiDataList(entity, this.PageIndex, this.PageSize, this.OrderBy);
             return Json(list, JsonRequestBehavior.AllowGet);
         }
 
@@ -41,7 +40,7 @@ namespace EquipmentManager.Controllers.Controllers
         }
 
         [HttpPost]
-        public JsonResult Save(Equipment entity)
+        public JsonResult Save(Assets entity)
         {
             entity.TenantId = this.TenantId;
             if (entity.Id == Guid.Empty)
@@ -51,19 +50,13 @@ namespace EquipmentManager.Controllers.Controllers
                 entity.CreateTime = DateTime.Now;
                 entity.ModifyBy = this.UserId;
                 entity.ModifyTime = DateTime.Now;
-                entity.ImageLink = UploadImg("EquipmentImageLink");
-                EquipmentProvider.Instance.Create(entity);
+                AssetsProvider.Instance.Create(entity);
             }
             else
             {
-                var newImg = UploadImg("EquipmentImageLink");
-                if (!string.IsNullOrWhiteSpace(newImg))
-                {
-                    entity.ImageLink = newImg;
-                }
                 entity.ModifyBy = this.UserId;
                 entity.ModifyTime = DateTime.Now;
-                EquipmentProvider.Instance.Update(entity);
+                AssetsProvider.Instance.Update(entity);
             }
             return Json(new ResponseModel() { Status = true });
         }

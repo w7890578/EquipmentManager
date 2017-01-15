@@ -1,0 +1,201 @@
+﻿@{
+    ViewBag.Title = "组织信息";
+}
+@*<script src="/Scripts/Organization/Organization.js"></script>*@
+<!--工具栏-->
+<div class="datagrid-toolbar">
+    <table cellspacing="0" cellpadding="0">
+        <tbody>
+            <tr>
+                <td>
+                    <a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-back'" onclick="javascript: history.go(-1)">上一级</a>
+                </td>
+                @*<td><div class="datagrid-btn-separator"></div></td>
+                    <td>
+                             <a href="###" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-add'" onclick="ShowAddDialog();">添加</a>
+                         </td>
+                         <td><div class="datagrid-btn-separator"></div></td>
+                         <td>
+                             <a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-edit'" onclick="ShowEditOrViewDialog();">修改</a>
+                         </td>
+                         <td>
+                             <div class="datagrid-btn-separator">
+                             </div>
+                         </td>
+                         <td>
+                             <a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-remove'" onclick="Delete();">删除</a>
+                         </td>
+                         <td>
+                             <div class="datagrid-btn-separator"></div>
+                         </td>
+                         <td>
+                             <a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-search'" onclick="ShowEditOrViewDialog('view');">查看</a>
+                         </td>*@
+                @*<td>
+                        <div class="datagrid-btn-separator"></div>
+                    </td>
+                    <td>
+                        <a id="btnSearch" href="###" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-filter'">搜索</a>
+                    </td>*@
+                @*<td><div class="datagrid-btn-separator"></div></td>
+                    <td>
+                        <a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-print'">打印</a>
+                    </td>*@
+                <td><div class="datagrid-btn-separator"></div></td>
+                <td>
+                    <a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-reload'" onclick='javascript:window.location.reload();'>刷新</a>
+                </td>
+                @*<td><div class="datagrid-btn-separator"></div></td>
+                    <td>
+                        <a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-help'">帮助</a>
+                    </td>*@
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<table title="@{
+    var type = Request["treegridtype"].ToString();
+    if (type.Equals("1"))
+    {
+        @("所有设备")
+    }
+    if (type.Equals("2"))
+    {
+        @("专用设备")
+    }
+    if (type.Equals("3"))
+    {
+        @("公共设施")
+    }
+
+}" class="easyui-treegrid"
+       id="tbTreeGrid"
+       style="width: 100%;"
+       data-options="url:'/Organization/GetTree?treeGridTypeEnum=@(Request["treegridtype"])',
+       method:'get' ,
+       lines:true,
+       rownumbers:true,
+       idField:'Id' ,
+       treeField:'Name'">
+    <thead>
+        <tr>
+            <th data-options="field:'Name'" width="220">名称</th>
+            <th data-options="field:'Type',formatter:TypeFormater" width="220">类型</th>
+        </tr>
+    </thead>
+</table>
+
+<script type="text/javascript">
+    function TypeFormater(val, rowdata, index) {
+        //return ' <div class="Progress"> <div style="width: ' + (val * 100) + '%; background-color: green;"><span>' + Math.round(val * 100) + '%</span> </div>';
+        if (val == "1") {
+            return '位置';
+        }
+        else if (val == "2") {
+            return '设备';
+        }
+        if (val == "3") {
+            return '设施';
+        }
+    }
+
+    $(function () {
+        $("#tbTreeGrid").treegrid({
+            onDblClickRow: function (rowData) {
+                var val = rowData.Type;
+                if (val == "1") {
+                    window.location.href = "/Organization/Detail";
+                    return false;
+                }
+                else if (val == "2") {
+                    window.location.href = "/Equipment/Detail";
+                    return false;
+                }
+                if (val == "3") {
+                    window.location.href = "/Assets/Detail";
+                    return false;
+                }
+
+                console.log(rowData);
+                //$('#grid').datagrid('uncheckAll');
+                //$('#grid').datagrid('checkRow', rowIndex);
+                //ShowEditOrViewDialog('view');
+            }
+        });
+    })
+</script>
+@*<!--搜索栏-->
+    <div class="searchdiv">
+            <form id="fmSearch" method="post">
+                <table>
+                    <tr>
+                        <td style="width: 70px; text-align: right;">设备名称：</td>
+                        <td style="width: 150px;">
+                            <input class="easyui-textbox" name="Name" placeholder="支持模糊查询" />
+                        </td>
+                    </tr>
+                </table>
+                </form>
+    </div>
+    <!--表格-->
+    <table id="grid" style="width: 100%;" class="easyui-datagrid">
+        <thead>
+            <tr>
+                     <th data-options="field: 'Id', align: 'center', hidden: true">主键</th>
+                    <th data-options="field: 'TenantId', align: 'center',sortable:'true'">租户Id</th>
+                    <th data-options="field: 'ParentId', align: 'center',sortable:'true'">父Id</th>
+                    <th data-options="field: 'Name', align: 'center',sortable:'true'">名称</th>
+                    <th data-options="field: 'Description', align: 'center',sortable:'true'">描述</th>
+                    <th data-options="field: 'Remark', align: 'center',sortable:'true'">备注</th>
+                    <th data-options="field: 'CreateBy', align: 'center',sortable:'true'">创建人</th>
+                    <th data-options="field: 'CreateTime', align: 'center',sortable:'true'">创建时间</th>
+                    <th data-options="field: 'ModifyBy', align: 'center',sortable:'true'">修改人</th>
+                    <th data-options="field: 'ModifyTime', align: 'center',sortable:'true'">修改时间</th>
+            </tr>
+        </thead>
+    </table>
+
+    <div style="text-align: center; width: 100%; color: red; display: none;" id="emptymsgdiv">没有查询到相关数据</div>
+    <!--弹出框-->
+    <div id="DivAdd" class="easyui-dialog" style="width: 400px; padding: 10px 10px 10px 0px;"
+         closed="true" resizable="true" modal="true" data-options="iconCls: 'icon-edit',buttons: '#dlg-buttons'">
+          <form id="fmDetail" method="post" novalidate enctype="multipart/form-data">
+
+    <input name="Id" type="hidden" value="" />
+    <input name="TenantId" type="hidden" value="" />
+    <input name="ParentId" type="hidden" value="" />
+    <input name="CreateBy" type="hidden" value="" />
+    <input name="CreateTime" type="hidden" value="" />
+    <input name="ModifyBy" type="hidden" value="" />
+    <input name="ModifyTime" type="hidden" value="" />
+            <table style="width: 100%; height: 100%;">
+
+                <tr>
+                    <td style="width: 100px; text-align: right;">名称：</td>
+                    <td>
+                        <input type="text" class="easyui-validatebox easyui-textbox" name="Name" id="Name" required="required" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="width: 100px; text-align: right;">描述：</td>
+                    <td>
+                        <input type="text" class="easyui-validatebox easyui-textbox" name="Description" id="Description" required="required" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="width: 100px; text-align: right;">备注：</td>
+                    <td>
+                        <input type="text" class="easyui-validatebox easyui-textbox" name="Remark" id="Remark" required="required" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+        <div style="text-align: center; padding-top: 10px" id="DivAddToolBar">
+            <a href="javascript:void(0)" class="easyui-linkbutton" id="btnAddOK" iconcls="icon-ok" onclick="SaveEntity()">确&nbsp;定&nbsp;&nbsp;</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="javascript:void(0)" class="easyui-linkbutton" iconcls="icon-cancel" onclick="javascript:$('#DivAdd').dialog('close')">关&nbsp;闭&nbsp;&nbsp;</a>
+        </div>
+    </div>*@

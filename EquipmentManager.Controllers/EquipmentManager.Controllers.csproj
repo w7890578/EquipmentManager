@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Constant\EquipmentConst.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AssetsController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BomController.cs" />
     <Compile Include="Controllers\ComponentController.cs" />
@@ -59,9 +60,11 @@
     <Compile Include="Controllers\GuaranteeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LogController.cs" />
+    <Compile Include="Controllers\OrganizationController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\TenantController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Dao\AssetsDao.cs" />
     <Compile Include="Dao\BaseDao.cs" />
     <Compile Include="Dao\BomDao.cs" />
     <Compile Include="Dao\ComponentDao.cs" />
@@ -70,10 +73,12 @@
     <Compile Include="Dao\GuaranteeDao.cs" />
     <Compile Include="Dao\LogDao.cs" />
     <Compile Include="Dao\OrganizationDao.cs" />
-    <Compile Include="Dao\Re_Organization_EquipmentDao.cs" />
+    <Compile Include="Dao\Re_OrganizationDao.cs" />
     <Compile Include="Dao\RoleDao.cs" />
     <Compile Include="Dao\TenantDao.cs" />
     <Compile Include="Dao\UserDao.cs" />
+    <Compile Include="Enum\TreeGridTypeEnum.cs" />
+    <Compile Include="Models\Assets.cs" />
     <Compile Include="Models\Bom.cs" />
     <Compile Include="Models\Component.cs" />
     <Compile Include="Models\Equipment.cs" />
@@ -81,11 +86,12 @@
     <Compile Include="Models\Guarantee.cs" />
     <Compile Include="Models\Log.cs" />
     <Compile Include="Models\Organization.cs" />
-    <Compile Include="Models\Re_Organization_Equipment.cs" />
+    <Compile Include="Models\Re_Organization.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\Tenant.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Provider\AssetsProvider.cs" />
     <Compile Include="Provider\BomProvider.cs" />
     <Compile Include="Provider\ComponentProvider.cs" />
     <Compile Include="Provider\EquipmentProvider.cs" />
@@ -93,7 +99,7 @@
     <Compile Include="Provider\GuaranteeProvider.cs" />
     <Compile Include="Provider\LogProvider.cs" />
     <Compile Include="Provider\OrganizationProvider.cs" />
-    <Compile Include="Provider\Re_Organization_EquipmentProvider.cs" />
+    <Compile Include="Provider\Re_OrganizationProvider.cs" />
     <Compile Include="Provider\RoleProvider.cs" />
     <Compile Include="Provider\TenantProvider.cs" />
     <Compile Include="Provider\UserProvider.cs" />

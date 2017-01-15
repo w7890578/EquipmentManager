@@ -3,8 +3,13 @@
 namespace EquipmentManager.Controllers.Models
 {
     //组织机构和设备的关联表
-    public class Re_Organization_Equipment
+    public class Re_Organization
     {
+        /// <summary>
+        /// 资产Id
+        /// </summary>
+        public Guid AssetsId { get; set; }
+
         /// <summary>
         /// 创建人
         /// </summary>
